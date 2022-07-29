@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(here)
+long_decathlon_data <- read.csv(here("clean_data/long_decathlon_data.csv"))
+long_decathlon_data <- select(long_decathlon_data, -1)
+glimpse(long_decathlon_data)
+```
+#longest long jump
+```{r}
+long_decathlon_data %>% 
+  select(name, discipline, score) %>% 
+  filter(discipline == "long_jump") %>% 
+  arrange(desc(score)) %>% 
+  head(1)
+```
+#average 100m time in each competition
+```{r}
+long_decathlon_data %>% 
+  filter(discipline == "x100m") %>% 
+  group_by(competition) %>% 
+  summarise(mean(score))
+```
+#highest points total across both competitions ####
+```{r}
+long_decathlon_data %>% 
+  group_by(name) %>% 
+  mutate(total_points = sum(points)) %>% 
+  arrange(desc(total_points))
+```
+#top 3 shotputters and scores in each comp
+```{r}
+long_decathlon_data %>% 
+  filter(discipline == "shot_put", competition == "Decastar") %>% 
+  arrange(desc(score)) %>% 
+  head(3)
+
+long_decathlon_data %>% 
+  filter(discipline == "shot_put", competition == "OlympicG") %>% 
+  arrange(desc(score)) %>% 
+  head(3)
+  
+```
+
