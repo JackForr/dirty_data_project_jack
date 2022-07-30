@@ -28,8 +28,10 @@ long_decathlon_data %>%
 ```{r}
 long_decathlon_data %>% 
   group_by(name) %>% 
-  mutate(total_points = sum(points)) %>% 
-  arrange(desc(total_points))
+  mutate(total_points = mean(points)*2) %>% 
+  arrange(desc(total_points)) %>% 
+  select(name, total_points) %>%
+  head(1)
 ```
 #top 3 shotputters and scores in each comp
 ```{r}
@@ -42,6 +44,11 @@ long_decathlon_data %>%
   filter(discipline == "shot_put", competition == "OlympicG") %>% 
   arrange(desc(score)) %>% 
   head(3)
-  
+```
+#avg points for 400m runners based on time 
+```{r}
+long_decathlon_data %>% 
+  mutate (time_category = if_else(score >= 50.00, "slow", "fast"))%>% group_by(time_category) %>% 
+  summarise(mean(points))
 ```
 
