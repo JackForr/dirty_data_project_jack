@@ -62,7 +62,8 @@ long_2017 <- long_2017 %>%
 #renaming columns & matching types
 long_2017 <- long_2017 %>% 
   rename("state_or_province" = state_province_county_etc,
-         "year" = internal_id) 
+         "year" = internal_id) %>% 
+  mutate(`year` = as.numeric(`year`))
 
 long_2016 <- long_2016 %>% 
   rename("going_out" = are_you_going_actually_going_trick_or_treating_yourself,
@@ -72,14 +73,14 @@ long_2016 <- long_2016 %>%
          "state_or_province" = which_state_province_county_do_you_live_in,
          "year" = timestamp
          ) %>% 
-  mutate(`year` = as.double(`year`))
+  mutate(`year` = as.numeric(`year`))
 
 long_2015 <- long_2015 %>% 
   rename("age" = how_old_are_you,
          "going_out" = are_you_going_actually_going_trick_or_treating_yourself,
          "year" = timestamp
          ) %>% 
-  mutate(`year` = as.double(`year`))
+  mutate(`year` = as.numeric(`year`))
 
 #recode to define year of observation
 
@@ -101,7 +102,6 @@ glimpse(full_data)
 
 full_data <- full_data %>% 
   mutate(going_out = coalesce(going_out, "unknown"),
-         age = coalesce(age, "unknown"),
          country = coalesce(country, "unknown"),
          state_or_province = coalesce(state_or_province, "unknown"),
          reaction = na_if(reaction, "3 or higher"),
@@ -134,7 +134,6 @@ full_data <- full_data %>%
          country = if_else(country %in% usa_outliers, "US", country),
          country = if_else(country %in% US_deviations, "US", country))
 
-unique(full_data$country)
 
 write.csv(full_data, file = "full_data.csv")
 

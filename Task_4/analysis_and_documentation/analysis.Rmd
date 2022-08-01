@@ -2,5 +2,42 @@
 title: "R Notebook"
 output: html_notebook
 ---
+```{r}
+library(tidyverse)
+library(here)
+```
 
+```{r}
+full_data <- read.csv("full_data.csv")
+glimpse(full_data)
+```
+
+### What is the total number of candy ratings given across the three years. (Number of candy ratings, not the number of raters. Don’t count missing values)
+
+```{r}
+full_data %>% 
+  filter(reaction != "NA") %>% 
+  nrow()
+```
+
+### What was the average age of people who are going out trick or treating
+
+```{r}
+unique(full_data$age) #  use regex to remove stupid values
+```
+
+
+
+```{r}
+full_data %>% 
+  mutate(`age` = as.numeric(`age`)) %>% 
+  filter(going_out == "Yes") %>% 
+  summarise(avg_age = mean(age), na.rm = TRUE)
+
+
+```
+
+```{r}
+unique(full_data$age) #  use regex to remove stupid values
+```
 
