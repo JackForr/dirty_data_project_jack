@@ -9,14 +9,12 @@ glimpse(decathlon_data)
 clean_decathlon_data <- decathlon_data %>% 
   rownames_to_column(var = "name") %>% 
   janitor::clean_names() %>% 
-  mutate_if(is.character, str_to_lower)
+  mutate_if(is.character, str_to_title)
 
 #long formatting
 long_decathlon_data <- clean_decathlon_data %>% 
   pivot_longer(-c(name, points, competition ),
 names_to = "discipline",
 values_to = "score")
-
-view(long_decathlon_data)
 
 write.csv(long_decathlon_data, file = "long_decathlon_data.csv")
