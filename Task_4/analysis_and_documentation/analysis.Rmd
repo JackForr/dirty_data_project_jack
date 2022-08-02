@@ -170,7 +170,4 @@ full_data_numeric_react %>%
   head(1)
 ```
 
-```{r}
-unique(full_data_numeric_react$country) ### group misspells in cleaning script
-```
 
