@@ -23,21 +23,154 @@ full_data %>%
 ### What was the average age of people who are going out trick or treating
 
 ```{r}
-unique(full_data$age) #  use regex to remove stupid values
+unique(full_data$age)
 ```
-
-
 
 ```{r}
 full_data %>% 
-  mutate(`age` = as.numeric(`age`)) %>% 
-  filter(going_out == "Yes") %>% 
-  summarise(avg_age = mean(age), na.rm = TRUE)
+  filter(going_out == "Yes", 
+         age != "Inf",
+         age <= 100) %>% 
+  summarise(avg_age = mean(age))
+```
+###  What was the average age of people who are not going trick or treating?
+```{r}
+full_data %>% 
+  filter(going_out == "No", 
+         age != "Inf",
+         age <= 100) %>% 
+  summarise(avg_age = mean(age))
+```
+### For each of joy, despair and meh, which candy bar received the most of these ratings?
+
+```{r}
+full_data %>% 
+  select(reaction, candy_type) %>% 
+  filter(reaction == "JOY") %>% 
+  group_by(candy_type) %>% 
+  summarise(joy_count=n()) %>% 
+  arrange(desc(joy_count)) %>% 
+  head(1)
+
+full_data %>% 
+  select(reaction, candy_type) %>% 
+  filter(reaction == "DESPAIR") %>% 
+  group_by(candy_type) %>% 
+  summarise(despair_count=n()) %>% 
+  arrange(desc(despair_count)) %>% 
+  head(1)
+
+full_data %>% 
+  select(reaction, candy_type) %>% 
+  filter(reaction == "MEH") %>% 
+  group_by(candy_type) %>% 
+  summarise(meh_count=n()) %>% 
+  arrange(desc(meh_count)) %>% 
+  head(1)
+```
+###How many people rated Starburst as despair?
+```{r}
+full_data %>% 
+  filter(candy_type == "Starburst", 
+         reaction == "DESPAIR") %>% 
+  summarise(star_despair_count = n())
+```
+###What was the most popular candy bar by this rating system for each gender in the dataset ?
+```{r}
+full_data_numeric_react <- full_data %>% 
+  mutate(reaction = recode(reaction, "JOY" = 1, "MEH" = 0, "DESPAIR" = -1))
+```
 
 
+```{r}
+full_data_numeric_react %>% 
+  select(reaction, candy_type, gender) %>% 
+  filter(gender == "Male") %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, gender) %>% 
+  filter(gender == "Female") %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, gender) %>% 
+  filter(gender == "Other") %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, gender) %>% 
+  filter(gender == "I'd rather not say") %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+```
+
+###What was the most popular candy bar in each year?
+```{r}
+full_data_numeric_react %>% 
+  select(reaction, candy_type, year) %>% 
+  filter(year == "2015") %>% 
+  group_by(year, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, year) %>% 
+  filter(year == "2016") %>% 
+  group_by(year, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, year) %>% 
+  filter(year == "2017") %>% 
+  group_by(year, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+```
+###What was the most popular candy bar by this rating for people in US, Canada, UK, and all other countries?
+
+```{r}
+full_data_numeric_react %>% 
+  select(reaction, candy_type, country) %>% 
+  filter(country == "US") %>% 
+  group_by(country, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, country) %>% 
+  filter(country == "UK") %>% 
+  group_by(country, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, country) %>% 
+  filter(country == "Canada") %>% 
+  group_by(country, candy_type) %>% 
+  summarise(reaction_total = sum(reaction)) %>% 
+  arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
 ```
 
 ```{r}
-unique(full_data$age) #  use regex to remove stupid values
+unique(full_data_numeric_react$country) ### group misspells in cleaning script
 ```
 

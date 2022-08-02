@@ -63,7 +63,8 @@ long_2017 <- long_2017 %>%
 long_2017 <- long_2017 %>% 
   rename("state_or_province" = state_province_county_etc,
          "year" = internal_id) %>% 
-  mutate(`year` = as.numeric(`year`))
+  mutate(`year` = as.numeric(`year`),
+         `age` = as.integer(`age`))
 
 long_2016 <- long_2016 %>% 
   rename("going_out" = are_you_going_actually_going_trick_or_treating_yourself,
@@ -73,14 +74,16 @@ long_2016 <- long_2016 %>%
          "state_or_province" = which_state_province_county_do_you_live_in,
          "year" = timestamp
          ) %>% 
-  mutate(`year` = as.numeric(`year`))
+  mutate(`year` = as.numeric(`year`),
+         `age` = as.integer(`age`))
 
 long_2015 <- long_2015 %>% 
   rename("age" = how_old_are_you,
          "going_out" = are_you_going_actually_going_trick_or_treating_yourself,
          "year" = timestamp
          ) %>% 
-  mutate(`year` = as.numeric(`year`))
+  mutate(`year` = as.numeric(`year`),
+         `age` = as.integer(`age`))
 
 #recode to define year of observation
 
@@ -133,6 +136,9 @@ full_data <- full_data %>%
   mutate(country = if_else(country %in% silly_values, NA_character_, country),
          country = if_else(country %in% usa_outliers, "US", country),
          country = if_else(country %in% US_deviations, "US", country))
+
+#cleaning age column
+unique(full_data$age)
 
 
 write.csv(full_data, file = "full_data.csv")
