@@ -15,22 +15,19 @@ glimpse(full_data)
 ### What is the total number of candy ratings given across the three years. (Number of candy ratings, not the number of raters. Don’t count missing values)
 
 ```{r}
-full_data %>% 
-  filter(reaction != "NA") %>% 
+full_data %>% #no filter needed as NAs already removed
   nrow()
 ```
 
 ### What was the average age of people who are going out trick or treating
-
 ```{r}
-unique(full_data$age)
-```
+unique(full_data$age) #checking change to numeric coerced outliers to NA
+unique(full_data$going_out) 
 
-```{r}
 full_data %>% 
   filter(going_out == "Yes", 
          age != "Inf",
-         age <= 100) %>% 
+         age <= 118) %>% #oldest living person
   summarise(avg_age = mean(age))
 ```
 ###  What was the average age of people who are not going trick or treating?
@@ -38,11 +35,10 @@ full_data %>%
 full_data %>% 
   filter(going_out == "No", 
          age != "Inf",
-         age <= 100) %>% 
+         age <= 118) %>% 
   summarise(avg_age = mean(age))
 ```
 ### For each of joy, despair and meh, which candy bar received the most of these ratings?
-
 ```{r}
 full_data %>% 
   select(reaction, candy_type) %>% 
@@ -77,10 +73,9 @@ full_data %>%
 ```
 ###What was the most popular candy bar by this rating system for each gender in the dataset ?
 ```{r}
-full_data_numeric_react <- full_data %>% 
+full_data_numeric_react <- full_data %>% #setting rating system 
   mutate(reaction = recode(reaction, "JOY" = 1, "MEH" = 0, "DESPAIR" = -1))
 ```
-
 
 ```{r}
 full_data_numeric_react %>% 
@@ -143,7 +138,6 @@ full_data_numeric_react %>%
   head(1)
 ```
 ###What was the most popular candy bar by this rating for people in US, Canada, UK, and all other countries?
-
 ```{r}
 full_data_numeric_react %>% 
   select(reaction, candy_type, country) %>% 
@@ -167,6 +161,14 @@ full_data_numeric_react %>%
   group_by(country, candy_type) %>% 
   summarise(reaction_total = sum(reaction)) %>% 
   arrange(desc(reaction_total), .by_group = TRUE) %>% 
+  head(1)
+
+full_data_numeric_react %>% 
+  select(reaction, candy_type, country) %>% 
+  filter(country != "Canada" & country != "US" & country != "UK") %>% 
+  group_by(candy_type) %>% #not grouping by country to allow for all others
+  summarise(reaction_total_RoW = sum(reaction)) %>% 
+  arrange(desc(reaction_total_RoW), .by_group = TRUE) %>% 
   head(1)
 ```
 
