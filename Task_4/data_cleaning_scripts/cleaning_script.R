@@ -120,8 +120,3 @@ full_data <- full_data %>%
 write.csv(full_data, file = "full_data.csv")
 
 
-
-  
-
-  
-

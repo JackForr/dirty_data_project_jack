@@ -16,6 +16,7 @@ glimpse(full_data)
 
 ```{r}
 full_data %>% #no filter needed as NAs already removed
+  select(reaction) %>% 
   nrow()
 ```
 
@@ -28,7 +29,8 @@ full_data %>%
   filter(going_out == "Yes", 
          age != "Inf",
          age <= 118) %>% #oldest living person
-  summarise(avg_age = mean(age))
+  summarise(avg_age = mean(age)) %>% 
+  round()
 ```
 ###  What was the average age of people who are not going trick or treating?
 ```{r}
@@ -36,7 +38,8 @@ full_data %>%
   filter(going_out == "No", 
          age != "Inf",
          age <= 118) %>% 
-  summarise(avg_age = mean(age))
+  summarise(avg_age = mean(age)) %>% 
+  round()
 ```
 ### For each of joy, despair and meh, which candy bar received the most of these ratings?
 ```{r}
@@ -67,7 +70,7 @@ full_data %>%
 ###How many people rated Starburst as despair?
 ```{r}
 full_data %>% 
-  filter(candy_type == "Starburst", 
+  filter(candy_type == "starburst", 
          reaction == "DESPAIR") %>% 
   summarise(star_despair_count = n())
 ```

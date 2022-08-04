@@ -1,0 +1,33 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(readr)
+library(tidyselect)
+dogs <- read.csv("dogs.csv")
+view(dogs)
+```
+
+###The client only counts a valid email address as one ending in ‘.com’. How many survey results have a valid email address.
+
+```{r}
+pattern <- ".com"
+
+dogs %>% 
+  str_count(pattern)
+```
+
+###What’s the average amount spent on dog food for each dog size.
+```{r}
+dogs %>% 
+  select(dog_size, amount_spent_on_dog_food) %>% 
+  group_by(dog_size) %>% 
+  summarise(avg_spend = mean(amount_spent_on_dog_food))
+```
+###For owners whose surname starts with a letter in the second half of the alphabet (N onwards) what is the average age of their dog?
+```{r}
+
+```
+

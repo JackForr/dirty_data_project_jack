@@ -1770,442 +1770,61 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGhlcmUpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeSh0aWR5c2VsZWN0KVxuZG9ncyA8LSByZWFkLmNzdihcImRvZ3MuY3N2XCIpXG52aWV3KGRvZ3MpXG5gYGAifQ== -->
 <pre class="r"><code>library(tidyverse)
-library(here)</code></pre>
+library(readr)
+library(tidyselect)
+dogs &lt;- read.csv(&quot;dogs.csv&quot;)
+view(dogs)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCAvVXNlcnMvdXNlci9Eb2N1bWVudHMvZGlydHlfZGF0YV9wcm9qZWN0X2phY2svVGFza180XG4ifQ== -->
-<pre><code>here() starts at /Users/user/Documents/dirty_data_project_jack/Task_4</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>###The client only counts a valid email address as one ending in
+‘.com’. How many survey results have a valid email address.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhIDwtIHJlYWQuY3N2KFwiZnVsbF9kYXRhLmNzdlwiKVxuZ2xpbXBzZShmdWxsX2RhdGEpXG5gYGAifQ== -->
-<pre class="r"><code>full_data &lt;- read.csv(&quot;full_data.csv&quot;)
-glimpse(full_data)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNzcyLDM1MlxuQ29sdW1uczogOVxuJCBYICAgICAgICAgICAgICAgICA8aW50PiAxLCAyLCAzLCA0LCA1LCA2LCA3LCA4LCA5LCAxMCwgMTEsIDEyLCAxMywgMTQs4oCmXG4kIHllYXIgICAgICAgICAgICAgIDxpbnQ+IDIwMTYsIDIwMTYsIDIwMTYsIDIwMTYsIDIwMTYsIDIwMTYsIDIwMTYsIDIwMTbigKZcbiQgZ29pbmdfb3V0ICAgICAgICAgPGNocj4gXCJOb1wiLCBcIk5vXCIsIFwiTm9cIiwgXCJOb1wiLCBcIk5vXCIsIFwiTm9cIiwgXCJOb1wiLCBcIk5vXCLigKZcbiQgZ2VuZGVyICAgICAgICAgICAgPGNocj4gXCJNYWxlXCIsIFwiTWFsZVwiLCBcIk1hbGVcIiwgXCJNYWxlXCIsIFwiTWFsZVwiLCBcIk1hbGVcIuKAplxuJCBhZ2UgICAgICAgICAgICAgICA8aW50PiAyMiwgMjIsIDIyLCAyMiwgMjIsIDIyLCAyMiwgMjIsIDIyLCAyMiwgMjIsIDIy4oCmXG4kIGNvdW50cnkgICAgICAgICAgIDxjaHI+IFwiQ2FuYWRhXCIsIFwiQ2FuYWRhXCIsIFwiQ2FuYWRhXCIsIFwiQ2FuYWRhXCIsIFwiQ2FuYWTigKZcbiQgc3RhdGVfb3JfcHJvdmluY2UgPGNocj4gXCJPbnRhcmlvXCIsIFwiT250YXJpb1wiLCBcIk9udGFyaW9cIiwgXCJPbnRhcmlvXCIsIFwiT+KAplxuJCBjYW5keV90eXBlICAgICAgICA8Y2hyPiBcIngxMDBfZ3JhbmRfYmFyXCIsIFwiYW5vbnltb3VzX2Jyb3duX2dsb2JzX3RoYXRf4oCmXG4kIHJlYWN0aW9uICAgICAgICAgIDxjaHI+IFwiSk9ZXCIsIFwiREVTUEFJUlwiLCBcIkpPWVwiLCBcIk1FSFwiLCBcIk1FSFwiLCBcIk1FSFwiLCDigKZcbiJ9 -->
-<pre><code>Rows: 772,352
-Columns: 9
-$ X                 &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,…
-$ year              &lt;int&gt; 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2016…
-$ going_out         &lt;chr&gt; &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;…
-$ gender            &lt;chr&gt; &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;…
-$ age               &lt;int&gt; 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22…
-$ country           &lt;chr&gt; &quot;Canada&quot;, &quot;Canada&quot;, &quot;Canada&quot;, &quot;Canada&quot;, &quot;Canad…
-$ state_or_province &lt;chr&gt; &quot;Ontario&quot;, &quot;Ontario&quot;, &quot;Ontario&quot;, &quot;Ontario&quot;, &quot;O…
-$ candy_type        &lt;chr&gt; &quot;x100_grand_bar&quot;, &quot;anonymous_brown_globs_that_…
-$ reaction          &lt;chr&gt; &quot;JOY&quot;, &quot;DESPAIR&quot;, &quot;JOY&quot;, &quot;MEH&quot;, &quot;MEH&quot;, &quot;MEH&quot;, …</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<div id="what-is-the-total-number-of-candy-ratings-given-across-the-three-years.-number-of-candy-ratings-not-the-number-of-raters.-dont-count-missing-values" class="section level3">
-<h3>What is the total number of candy ratings given across the three
-years. (Number of candy ratings, not the number of raters. Don’t count
-missing values)</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhICU+JSAjbm8gZmlsdGVyIG5lZWRlZCBhcyBOQXMgYWxyZWFkeSByZW1vdmVkXG4gIHNlbGVjdChyZWFjdGlvbikgJT4lIFxuICBucm93KClcbmBgYCJ9 -->
-<pre class="r"><code>full_data %&gt;% #no filter needed as NAs already removed
-  select(reaction) %&gt;% 
-  nrow()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDc3MjM1MlxuIn0= -->
-<pre><code>[1] 772352</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="what-was-the-average-age-of-people-who-are-going-out-trick-or-treating" class="section level3">
-<h3>What was the average age of people who are going out trick or
-treating</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5pcXVlKGZ1bGxfZGF0YSRhZ2UpICNjaGVja2luZyBjaGFuZ2UgdG8gbnVtZXJpYyBjb2VyY2VkIG91dGxpZXJzIHRvIE5BXG5gYGAifQ== -->
-<pre class="r"><code>unique(full_data$age) #checking change to numeric coerced outliers to NA</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBbMV0gICAgIDIyICAgICA0NSAgICAgNDggICAgIDU3ICAgICA0MiAgICAgNDEgICAgIDQ3ICAgICAyOCAgICAgNDRcbiBbMTBdICAgICAzNCAgICAgNDYgICAgIDQwICAgICAzMSAgICAgMzMgICAgIDM1ICAgICA0OSAgICAgMTYgICAgIDYwXG4gWzE5XSAgICAgMzAgICAgIDUxICAgICAzOCAgICAgNTQgICAgIDQzICAgICA1MCAgICAgMzcgICAgIDU1ICAgICA1OFxuIFsyOF0gICAgIDMyICAgICBOQSAgICAgNjQgICAgIDYxICAgICA2NSAgICAgMjYgICAgIDM2ICAgICA3OCAgICAgMzlcbiBbMzddICAgICA1MiAgICAgMjkgICAgIDYzICAgICAxMCAgICAgNjIgICAgIDIzICAgICAyMCAgICAgMjQgICAgIDE3XG4gWzQ2XSAgICAgMjcgICAgIDUzICAgICAxOCAgICAgMTMgICAgIDU2ICAgICA2NiAgICAgMjUgICAgIDU5ICAgICA3NFxuIFs1NV0gICAgIDE5ICAgICAxNCAgICAgNzkgICAgIDcwICAgICA2OCAgICAgODEgICAgIDEyICAgICA2NyAgICAgMTFcbiBbNjRdICAgICAyMSAgICAgNzEgICAgIDgyICAgICAxNSAgICAxNDIgICAgICA3ICAgICAgNiAgICAgIDggICAxODgwXG4gWzczXSAgICAgNzUgICAgIDY5ICAgICA3MiAyMDA1ODcgICAgICA5ICAgICAgNSAgICAgNzcgICAgMTAwICAgIDExNVxuIFs4Ml0gICAgMTIzICAgIDM4OCAgICAxMjAgICAgICAwICAgIDEwOCAgICAzNTAgICAgIDk5ICAgMjAwMCAgICA0MDBcbiBbOTFdICAgICA4NSAgICAgOTcgICAgNDkwICAgICA5MCAgICAzMTIgICAgIDg4ICAgIDEwMiAgICAgNzYgICAxMDAwXG5bMTAwXSAgICAgIDQgICAgIDczXG4ifQ== -->
-<pre><code>  [1]     22     45     48     57     42     41     47     28     44
- [10]     34     46     40     31     33     35     49     16     60
- [19]     30     51     38     54     43     50     37     55     58
- [28]     32     NA     64     61     65     26     36     78     39
- [37]     52     29     63     10     62     23     20     24     17
- [46]     27     53     18     13     56     66     25     59     74
- [55]     19     14     79     70     68     81     12     67     11
- [64]     21     71     82     15    142      7      6      8   1880
- [73]     75     69     72 200587      9      5     77    100    115
- [82]    123    388    120      0    108    350     99   2000    400
- [91]     85     97    490     90    312     88    102     76   1000
-[100]      4     73</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5pcXVlKGZ1bGxfZGF0YSRnb2luZ19vdXQpIFxuYGBgIn0= -->
-<pre class="r"><code>unique(full_data$going_out) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiTm9cIiAgICAgIFwiWWVzXCIgICAgIFwidW5rbm93blwiXG4ifQ== -->
-<pre><code>[1] &quot;No&quot;      &quot;Yes&quot;     &quot;unknown&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhICU+JSBcbiAgZmlsdGVyKGdvaW5nX291dCA9PSBcIlllc1wiLCBcbiAgICAgICAgIGFnZSAhPSBcIkluZlwiLFxuICAgICAgICAgYWdlIDw9IDExOCkgJT4lICNvbGRlc3QgbGl2aW5nIHBlcnNvblxuICBzdW1tYXJpc2UoYXZnX2FnZSA9IG1lYW4oYWdlKSkgJT4lIFxuICByb3VuZCgpXG5gYGAifQ== -->
-<pre class="r"><code>full_data %&gt;% 
-  filter(going_out == &quot;Yes&quot;, 
-         age != &quot;Inf&quot;,
-         age &lt;= 118) %&gt;% #oldest living person
-  summarise(avg_age = mean(age)) %&gt;% 
-  round()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSDDlyAxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBRUXJDTUJEYzFrWXhZQlY4aDcxNDhhZ2dQa0FVdkVtc3NSWmpVdEpVUGZweWRWTVQwT1NRN0U1bWhwbjFjamVsT3dvQUhVaGl2QW1PUUxhYjFXUUdMUUlSSk5DMzd3Ty94eTBBa05wM3ZuakM5L3dSaVdSWFh1TXcrZ0Y3N0Zic1djRURibCtyZStiNUEyY2VoWWE1WUhWb1NJL01zT3lrVVl2Yks1RDBWR1ZLSlZFVTI4Z2tFRWM2QUlhTnRDbU9rL3pjeUl2dER0U2xnZjlrWWNyNDdheUlzK3B5V1pTUysreUNIYmh3UzRwdDI3SlpwVXRwZkJORTY4d293enlQNWtwNHBPMEdydzlRUCswM3FRRUFBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["avg_age"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"35"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="what-was-the-average-age-of-people-who-are-not-going-trick-or-treating" class="section level3">
-<h3>What was the average age of people who are not going trick or
-treating?</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhICU+JSBcbiAgZmlsdGVyKGdvaW5nX291dCA9PSBcIk5vXCIsIFxuICAgICAgICAgYWdlICE9IFwiSW5mXCIsXG4gICAgICAgICBhZ2UgPD0gMTE4KSAlPiUgXG4gIHN1bW1hcmlzZShhdmdfYWdlID0gbWVhbihhZ2UpKSAlPiUgXG4gIHJvdW5kKClcbmBgYCJ9 -->
-<pre class="r"><code>full_data %&gt;% 
-  filter(going_out == &quot;No&quot;, 
-         age != &quot;Inf&quot;,
-         age &lt;= 118) %&gt;% 
-  summarise(avg_age = mean(age)) %&gt;% 
-  round()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSDDlyAxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVB5dzZDTUJCY2tFb2c4Wkg0SGZUaVJXOG1Hai9BYU9MTlZLaEl4SlpBVVk5K3VickZOdEgyME4yZHpreG5ONnY5Tk43SEFOQ0R3TWViWUF0a3QxMG5NK2dROENDQVNOY0hQazg2QUdDbzYyTDVoTy81SXhMQnJyekJadndEaHV5V0gxak9IVzVVeXp1MS9JRXg5MXpEdEdTTmF4aG5UREY2cWxHTDA4dVJoTEpTaFJRbzhuVms0b2k5MmdGR3JkQXBzaVE5dCtLU3pQVUhKZzM4SjNOVCttOWpSWXhWbjR1OEVOeG1MOW1SbDJZWTRyYmRzclNxQzZIc0pvZzJWRW5GTEM5T1pXbVJiamQ0ZlFCVjNQS2VxUUVBQUE9PSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["avg_age"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"39"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="for-each-of-joy-despair-and-meh-which-candy-bar-received-the-most-of-these-ratings" class="section level3">
-<h3>For each of joy, despair and meh, which candy bar received the most
-of these ratings?</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhICU+JSBcbiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlKSAlPiUgXG4gIGZpbHRlcihyZWFjdGlvbiA9PSBcIkpPWVwiKSAlPiUgXG4gIGdyb3VwX2J5KGNhbmR5X3R5cGUpICU+JSBcbiAgc3VtbWFyaXNlKGpveV9jb3VudD1uKCkpICU+JSBcbiAgYXJyYW5nZShkZXNjKGpveV9jb3VudCkpICU+JSBcbiAgaGVhZCgxKVxuYGBgIn0= -->
-<pre class="r"><code>full_data %&gt;% 
-  select(reaction, candy_type) %&gt;% 
-  filter(reaction == &quot;JOY&quot;) %&gt;% 
-  group_by(candy_type) %&gt;% 
-  summarise(joy_count=n()) %&gt;% 
-  arrange(desc(joy_count)) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRd1U3RUlCQ2R4VVhUSnBwTnZIanhFOXFzOGVJSEdEL0FhTEkzd3Jhc2RzV2hBUnF0SjMvRzM5eDFvTlFZSmdHR043dzN2SG04Mzl5V214SUFUbURKYU9lVUFuOStlcWp1SUNLd2dDVVU0ZnlrOGlVbEFWejlLMXhKSE1WdTBGcTQ3a3Uxb3BIWWptSXJMZFhPNHp1NC9zbkVPTXAzNVpJUVMyQTVNZjNZcTRRVWV6T0t4Z3pvTTM1aHpVYzlhNFFtN0p1MkkwWGVxTkhTdWV6SFpTdTlySGVXK0hRN1pKUXowL3ZPSUpGWXNNc3o4c0ptd0dyQThKTzJhbDRIZkt0dTFxSEQ1RHRHbWtGY2M4Nm1udXlZdEhqU09sWDQwdUZzbjJ1NVZUcGRMc2h5ZEZ6M3RxT0JKQ3VFdXRvYkwvWGZGSTJla1dnT0RyK3R4Vk1zNWdFQUFBPT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["candy_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["joy_count"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"any_full_sized_candy_bar","2":"7589"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5mdWxsX2RhdGEgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUpICU+JSBcbiAgZmlsdGVyKHJlYWN0aW9uID09IFwiREVTUEFJUlwiKSAlPiUgXG4gIGdyb3VwX2J5KGNhbmR5X3R5cGUpICU+JSBcbiAgc3VtbWFyaXNlKGRlc3BhaXJfY291bnQ9bigpKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhkZXNwYWlyX2NvdW50KSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>
-full_data %&gt;% 
-  select(reaction, candy_type) %&gt;% 
-  filter(reaction == &quot;DESPAIR&quot;) %&gt;% 
-  group_by(candy_type) %&gt;% 
-  summarise(despair_count=n()) %&gt;% 
-  arrange(desc(despair_count)) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRVVU3RE1BejF3Z0phcGFFaC9ybEJLeEEvSEFCeEFBVFMvcW9zRFNOcWNLb2sxZGdmVitVaUcwNldvaW1Xa3RqUDhiT2ZYNS9YajlXNkFvQUxtRE82T2JuQTM5OWU2aWRJQ014Z0RvdjRmbFA2bHB3SXJzNFNOeHRuZTRYdDF0aGQ2NE9XUFlITDlBSHVmZ3NXanVKTCtjekFNbGhKZ2QyK0RmdEJaV1RaS1Q4STdWcHBSd3dGeDhMWlhUUHh4RWJzaDY0aldkbE1HdUY5TVc3VmlTQ2FEMGYxRkIyS2tpczdCRzJSaWxqVXlvdmltU3VBMVloeGtxNldueVAyOWNOOTdIRFNuaXp2SVozSlo2ZWU3Smk1ZU9hNlZMalZPSzJBRzdGUkpnZlhKRGtwYmdhbmFTRlpDcUcrQ1RZSTg3OUpheVlraVlQREg5VDk3YXpqQVFBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["candy_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["despair_count"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"broken_glow_stick","2":"7905"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5mdWxsX2RhdGEgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUpICU+JSBcbiAgZmlsdGVyKHJlYWN0aW9uID09IFwiTUVIXCIpICU+JSBcbiAgZ3JvdXBfYnkoY2FuZHlfdHlwZSkgJT4lIFxuICBzdW1tYXJpc2UobWVoX2NvdW50PW4oKSkgJT4lIFxuICBhcnJhbmdlKGRlc2MobWVoX2NvdW50KSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>
-full_data %&gt;% 
-  select(reaction, candy_type) %&gt;% 
-  filter(reaction == &quot;MEH&quot;) %&gt;% 
-  group_by(candy_type) %&gt;% 
-  summarise(meh_count=n()) %&gt;% 
-  arrange(desc(meh_count)) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRd1dyRE1BeFYzTGdsZ1piQy9tRDNoSlZkOWdHbEh6Qlc2SzE0aWR1R3ViYUpIYnJjOXVYTlpOY2V3d0xMMGhOUDB0UDc5dkJhSGtvQW1FRk8wRk1NZ2U0L2R0VWJlQVF5eUtGdy96ZVduekJ3NFBwZm9SQktpRTRyYlRCWitnTE1ueE0ybGV6S1RXQ1NBSllOaysxNHRLUG1zZGVWWDQ2TkdxUk4rRVd2Ym5YczRZYVFIM1FUV2pxb0VjeVlaTVd5WlpiVnB4NzVtTjBUeWtKcDJ5bUpKT0wwMFlTYzlRbXdIcVRicEsyYXl5Qy9xczJMbS9EUTdTM2N3TDhZazhkTU1vVmVOUFNhYzNudVpKUlBCZnZrSWlRcmxPd1YxN3J2OENCQkNxS210c295OFhkRkpTTGl4Y0g5RjFsMjdXUFhBUUFBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["candy_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["meh_count"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"lollipops","2":"1570"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###How many people rated Starburst as despair?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhICU+JSBcbiAgZmlsdGVyKGNhbmR5X3R5cGUgPT0gXCJzdGFyYnVyc3RcIiwgXG4gICAgICAgICByZWFjdGlvbiA9PSBcIkRFU1BBSVJcIikgJT4lIFxuICBzdW1tYXJpc2Uoc3Rhcl9kZXNwYWlyX2NvdW50ID0gbigpKVxuYGBgIn0= -->
-<pre class="r"><code>full_data %&gt;% 
-  filter(candy_type == &quot;starburst&quot;, 
-         reaction == &quot;DESPAIR&quot;) %&gt;% 
-  summarise(star_despair_count = n())</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRV3dyQ01CRGMxa2F4NEFNOVJ3dmlqd2NRRHlBSy9TdXhqVnFzU1VsUzlOUFRlYXpXVFUxUkVraXlPOG5NN3V4K202ekRKQVNBQVFRK25nUkRJTWZETHRwQWg0QUhBWXpOL2NUblpRY0FUTDczNk8xOElwemVtY0pnL2djdWxLWXl6Wm1xYUNIVFROUmNPN1N4RkkrNHB4cHQvNFZIaTh2VnowcXFYUDB3cDVyR1o0bDh6QnFITWhLVkxnUkhrbSs2Snc3Wmt3NHdxN25wSkkreWE4MXYwY29Vc0s3aDUveC9DbWFia241cnBZaVZHakorS1RqcmV5L3BpWlUybWFManpuQmN5UUxuWVowZ3FtSXROTzMvaFprb2U2VHpCczBIU29BT3JyUUJBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["star_despair_count"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"1990"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###What was the most popular candy bar by this rating system for each
-gender in the dataset ?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgPC0gZnVsbF9kYXRhICU+JSAjc2V0dGluZyByYXRpbmcgc3lzdGVtIFxuICBtdXRhdGUocmVhY3Rpb24gPSByZWNvZGUocmVhY3Rpb24sIFwiSk9ZXCIgPSAxLCBcIk1FSFwiID0gMCwgXCJERVNQQUlSXCIgPSAtMSkpXG5gYGAifQ== -->
-<pre class="r"><code>full_data_numeric_react &lt;- full_data %&gt;% #setting rating system 
-  mutate(reaction = recode(reaction, &quot;JOY&quot; = 1, &quot;MEH&quot; = 0, &quot;DESPAIR&quot; = -1))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGdlbmRlcikgJT4lIFxuICBmaWx0ZXIoZ2VuZGVyID09IFwiTWFsZVwiKSAlPiUgXG4gIGdyb3VwX2J5KGdlbmRlciwgY2FuZHlfdHlwZSkgJT4lIFxuICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSBcbiAgaGVhZCgxKVxuYGBgIn0= -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, gender) %&gt;% 
-  filter(gender == &quot;Male&quot;) %&gt;% 
-  group_by(gender, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2dlbmRlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlXG5gLmdyb3Vwc2AgYXJndW1lbnQuXG4ifQ== -->
-<pre><code>`summarise()` has grouped output by &#39;gender&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJnZW5kZXIgWzFdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQTExUVFVN0RNQkRjdERHb2tWcEY0c0luRWdtNGNPU0F1SEZCSVBVV2JSTzNSQmc3Y2h5VmNPSVpQSWVYdGF6dEdCV3ZaR2MxczVtZDhkUDkraVpiWndBd2gzUkdONk1XMk12elEzRUxEb0VFVWxqWTd3ZlJGMjRTSUQ4aDBrY1VQTUl1VVk3VmRoQ2k2dHRQM2xRMXltYXNOcWlKVzltNXUrOGY4UFZ2Q2FzRjluMGtsalZvc054cWZPZlIrRUtyZlNrSnQ3OHM2Y3krNkRwU3hicGhLUGRSSFhpMjQ3TGhPbXp4SHMzWThRbFphWTYxYVpXc2pESW9DRGxFc3VlcXN6d0p6K3pMc01oNG9pTWdINlExMGhUMTZ5RGZpcXRydTlmeHZwWlRuNXowYzc4elBVNWFMTGpuY3RmSzRKVUozSER4WjF6dFhlQ3kwNjAwSVNDaGZlbWpoTWhLQk1TRmc4TXZwanZNeGhFQ0FBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["gender"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Male","2":"any_full_sized_candy_bar","3":"1584"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGdlbmRlcikgJT4lIFxuICBmaWx0ZXIoZ2VuZGVyID09IFwiRmVtYWxlXCIpICU+JSBcbiAgZ3JvdXBfYnkoZ2VuZGVyLCBjYW5keV90eXBlKSAlPiUgXG4gIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSBcbiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, gender) %&gt;% 
-  filter(gender == &quot;Female&quot;) %&gt;% 
-  group_by(gender, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2dlbmRlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlXG5gLmdyb3Vwc2AgYXJndW1lbnQuXG4ifQ== -->
-<pre><code>`summarise()` has grouped output by &#39;gender&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJnZW5kZXIgWzFdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQTExUVFVN0RNQkRjcERHb2tWcEY0c0luRWdtNGNPU0ErZ0FFVW03Uk5uRkxoR3RIanFNU1R0ejVjOHM2amxIeFNuWldNNXZaR2I4OGx3OXBtUUxBQXBLWWJrWXRzTGZYVGY0SUV3SVJKTEMwMzAraWI2WkpnT3lDdU5yd0F3b2VvTGNveDJvM0NGSDE3UmR2cWhwbE0xWmIxTVN0N2R6VFR3bXUvcTFodGNDK0Q4VFNCZzBXTzQwSEhvd3Z0VG9Xa25EN3k0cE8vRTNYbVNyVTlVT1pDK3VzNzdsc3VQWmJuRWN6ZG54RzFwcGpiVm9sSzZNTUNrSk9nZXkxNml4UHdyRjlHeFlZajNRQVpJTzBScHE4Zmgva1IzNTNiL2RPdkt2VjNFY1gvY0x0VE02ekZ2UHV1ZHkzMG50bEFyZGMvQmxYeHlsdzBlbFdHaCtRMEw1d1VYeGtKVHd5aFlQVEw1dkdUdGNUQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["gender"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Female","2":"any_full_sized_candy_bar","3":"875"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGdlbmRlcikgJT4lIFxuICBmaWx0ZXIoZ2VuZGVyID09IFwiT3RoZXJcIikgJT4lIFxuICBncm91cF9ieShnZW5kZXIsIGNhbmR5X3R5cGUpICU+JSBcbiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIFxuICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgXG4gIGhlYWQoMSlcbmBgYCJ9 -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, gender) %&gt;% 
-  filter(gender == &quot;Other&quot;) %&gt;% 
-  group_by(gender, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2dlbmRlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlXG5gLmdyb3Vwc2AgYXJndW1lbnQuXG4ifQ== -->
-<pre><code>`summarise()` has grouped output by &#39;gender&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJnZW5kZXIgWzFdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQTExUTBVckRNQlM5N1JwbGhZMkNMLzVFQzg0WEgwWEVWMEVVOWxheUp0dktZbExTbEZtZi9QTE5tNlNSbVF0SkwrZWVubnRPM3A3WDkvazZCNEFaWkNuZUJGc2dIKzh2NVFNNEJCTElZRzYvWHppK2NVeUE0bUpBWHMyZTZ3aThwWEtzdDRNUWRkOStjMVkzVkxLeDNsRExXMXJlNDlNUCtQcTNoVFNDOW4wa2xqTnFhTFhWOUpOSDlMbFd4MG9pYm45WjRFbXQ2aGtyMWcya3dtZDE0TldPUzRiV3B5M2VveGs3UGlGTHpXbGpXaVZyb3d3VmlKd2kyV3ZWMlRrS3AvWnBTR1E4aVorbEdLUTF3c3BtUDhoRGViZXllOTNjMTJMcWs0dCs1bmRtNTBtTEJQZGM3bG9adkJKQk4xejhHVmRIRjdqcWRDdE5DSWhvWC9rb0liSVNBWEhoNFBRTEgxN1lsQklDQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["gender"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Other","2":"any_full_sized_candy_bar","3":"37"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGdlbmRlcikgJT4lIFxuICBmaWx0ZXIoZ2VuZGVyID09IFwiSSdkIHJhdGhlciBub3Qgc2F5XCIpICU+JSBcbiAgZ3JvdXBfYnkoZ2VuZGVyLCBjYW5keV90eXBlKSAlPiUgXG4gIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSBcbiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, gender) %&gt;% 
-  filter(gender == &quot;I&#39;d rather not say&quot;) %&gt;% 
-  group_by(gender, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2dlbmRlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlXG5gLmdyb3Vwc2AgYXJndW1lbnQuXG4ifQ== -->
-<pre><code>`summarise()` has grouped output by &#39;gender&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJnZW5kZXIgWzFdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQTExUXNVN0RNQkM5cERHb2tWcEZzREJtWTBva1lHRmtRRWlNSUpDNlJkZlliU09NSFRtT1NwajQ4aGJiaVZIeFNYWk83NzNjdmVmWHg5VmR1a29CWUFaSmJHNWlXaUR2YjAvRlBUZ0VJa2hnYnI5ZmhyNTBTb0RzaExoNHZxYTVRcjFqS2hkUzV4ME9nZUlLeFZCdGVzNnJydmxtdEtwUjBLRmFvekxjMHVvZVhtQ3FmeXRKemJIcmdtRXBSWTNsUnVFbkMrUnpKZmVsTUxqOVpXRk8vR091bzZsd3JoZGxZM0FIbm0yWm9FejVMYU5IUGJSc1FwYUtZYTBiS1NvdE5YS0RISUt4NTdLMXZCa2MyM2NpZ2ZGSUJVRFdDMnVFRnZXdUZ4L0Z6YTNkNi9peEZsTWZuZlN6Y1dkeW5HWVI3NTZKYlNPOFY4Snh6ZmlmY2JsM2djdFdOVUw3Z0FidHlqR0tqeXk1UjF3NE9Qd0NEM2lxZXg4Q0FBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["gender"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"I'd rather not say","2":"any_full_sized_candy_bar","3":"68"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###What was the most popular candy bar in each year?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIHllYXIpICU+JSBcbiAgZmlsdGVyKHllYXIgPT0gXCIyMDE1XCIpICU+JSBcbiAgZ3JvdXBfYnkoeWVhciwgY2FuZHlfdHlwZSkgJT4lIFxuICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSBcbiAgaGVhZCgxKVxuYGBgIn0= -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, year) %&gt;% 
-  filter(year == &quot;2015&quot;) %&gt;% 
-  group_by(year, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3llYXInLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;year&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJ5ZWFyIFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF5MHJEUUJTOVRUT1dCaXdCTi81RUF0S05TeGZpQjRoQ2Q4TTBtV3JvZENaTUp0UzQ4cGY4SWo5RWFMM3pFcDBMOCtEY3c3bm4zTWY3emJyWUZBQXdoenpEbStBWHlQUFRRM1VMRG9FWjVMQzA3eHUycnh3VDROSTFZUEdGYi9tSGRNM2tSSGVqRUhUbzNubExHeWJiaVc2Wnh0N0s4dTQrdjhIWFAzSFNDRFlNaVZqUk1zUHFuV1lIbnRDWFdoMXJpZmdRdkdRZmVKMnhVdDFJS24xRUIrWVRSME5oaG5kb3BwNEhaS1U1YTB5bkpEWEtNSUhJS1JGZHFONzJVVGF6K3lDSjdabE9nSEtVMWtaYk5hK2ozRmMzYXp2WEw5QlZXS1k3OFQvM00vTnowQ0pCNjRMTGwwNUdyMFN3TFJlL3h0WFJ4YTE3M1VrVEF5STYxRDVLakt4RVJGdzRPUDBBemgxYkF3Y0NBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["year"],"name":[1],"type":["int"],"align":["right"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2015","2":"any_full_sized_candy_bar","3":"4603"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIHllYXIpICU+JSBcbiAgZmlsdGVyKHllYXIgPT0gXCIyMDE2XCIpICU+JSBcbiAgZ3JvdXBfYnkoeWVhciwgY2FuZHlfdHlwZSkgJT4lIFxuICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSBcbiAgaGVhZCgxKVxuYGBgIn0= -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, year) %&gt;% 
-  filter(year == &quot;2016&quot;) %&gt;% 
-  group_by(year, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3llYXInLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;year&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJ5ZWFyIFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF5MDdETUJEY3BqRlZJMUZGNHNKUEpGSlZEaHc1SUQ0QWdkUmI1Q1l1alRCMlpEc3E0Y1FuOElsOFNjdjZoY0FyK2FIWjBlek1QdDV2TjhXMkFJQTU1Qm5lQkw5QW5wOGVxbHR3Q013Z2g2VjkzN0Y5NVpnQWw2NEJpMjk4eXora2F5cW1aajl5M3VqK2czVk5TMFUzTlR1cXNMZXl2THV2Ry9EMVQ1eTBuR3FkaUJVZE5iVGVLL3JHRXZwU3lXTXRFTmZCUy9hSjF4a3IxWTJrMGtkMFlENHhOQlJtZUlkbUdsaEFWb3JSMXZSU05FWWF5aEU1SmFJTE9kZyt5bVoySHlTeFBWTUpVSTdDMnVpcTlqQ0sxMnE5c1hQOUFsMkZaYm9ULzNNL016OEhMUkswTHBoNDZVWDBTampkTWY1clhCNWQzSHBRdlRBeElLSzY5bEZpWk1rajRzTEI2UWRxSmZuRkJ3SUFBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["year"],"name":[1],"type":["int"],"align":["right"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2016","2":"any_full_sized_candy_bar","3":"1037"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIHllYXIpICU+JSBcbiAgZmlsdGVyKHllYXIgPT0gXCIyMDE3XCIpICU+JSBcbiAgZ3JvdXBfYnkoeWVhciwgY2FuZHlfdHlwZSkgJT4lIFxuICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSBcbiAgaGVhZCgxKVxuYGBgIn0= -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, year) %&gt;% 
-  filter(year == &quot;2017&quot;) %&gt;% 
-  group_by(year, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3llYXInLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;year&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJ5ZWFyIFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF5MnJETUJEY09GWkREQTJHWHZJVE5vUmNldXloOUFOS0M3a0p4VlphRTFVeXNrenFudm9aL2IzK1NOTFZxN1JhMElQWllYWm1IKzkzMjJKWEFNQWM4Z3h2Z2w4Z3owOFAxUzA0QkdhUXc5Sys3OWkrY1V5QWE5ZUF4VGUrNVIvU21zbUpIa1loNk5COThKWTJUTFlUM1RPTnZaWGwzWDJ0d2RjL2NkSUlOZ3lKV05FeXcrcURabTg4b1MrMU90VVM4U0Y0eVQ3eHVtQ2x1cEZVK29nT3pDZU9oc0lNNzlCTVBRL0lTblBXbUU1SmFwUmhBcEZ6SXJwUXZlMmpiR2IzUVJMYk01MEE1U2l0amJacVhrZDVyRFpiTzljdjBGVllwanZ4UC9jejgwdlFJa0hyaXN1WFRrYXZSTEE5RjcvRzFjbkZyWHZkU1JNRElqclVQa3FNckVSRVhEZzQvd0M3UVg3Q0J3SUFBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["year"],"name":[1],"type":["int"],"align":["right"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2017","2":"any_full_sized_candy_bar","3":"1542"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###What was the most popular candy bar by this rating for people in
-US, Canada, UK, and all other countries?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGNvdW50cnkpICU+JSBcbiAgZmlsdGVyKGNvdW50cnkgPT0gXCJVU1wiKSAlPiUgXG4gIGdyb3VwX2J5KGNvdW50cnksIGNhbmR5X3R5cGUpICU+JSBcbiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIFxuICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgXG4gIGhlYWQoMSlcbmBgYCJ9 -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, country) %&gt;% 
-  filter(country == &quot;US&quot;) %&gt;% 
-  group_by(country, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2NvdW50cnknLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;country&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJjb3VudHJ5IFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF5MDdETUJEY3BERlZJN1dLeElXZlNDUUVCNDRjRUI4QVZPb3Qyam91UkJnN2NoeVZjT0pUK0VxT0xYN0VWZkVlN05YTWVuYkdUdytibTN5VEE4QU1zdFNjeExSQTFpK1A1UjA0QkJMSVlHSHZUME5mdWttQTRveEkxODhSY29WaXJIY0Q1M1hmZnJHbXBpaWFzZDZpTXR6S3p0My8vSUt2ZnlzSTVkajNrVmplb01acXAvQ0RSZU1MSmZlVk1MaDlzclJPdnMxeE5CWHJocUhDQjNYZ25NcEJhRFdHTmQ2a0hqczJJU3ZGa09wV2lscExqZHdnaDBoM0xqdkxHK1hVZmd5Sm5DY3FBb3BCV0NkTlNkOEc4VjVlMzlxOWp2ZTFuUHJrckovNW5kbHgwaUtUMWdVVHI2MElYZ25ITGVNbjQzTHZFbGVkYW9VT0FRM2FWejVLaUN4NVFGdzRPUHdCWFQvQ1RSQUNBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"US","2":"any_full_sized_candy_bar","3":"2171"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGNvdW50cnkpICU+JSBcbiAgZmlsdGVyKGNvdW50cnkgPT0gXCJVS1wiKSAlPiUgXG4gIGdyb3VwX2J5KGNvdW50cnksIGNhbmR5X3R5cGUpICU+JSBcbiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIFxuICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgXG4gIGhlYWQoMSlcbmBgYCJ9 -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, country) %&gt;% 
-  filter(country == &quot;UK&quot;) %&gt;% 
-  group_by(country, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2NvdW50cnknLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;country&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJjb3VudHJ5IFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFzV3JETUJBOU8xWkREQW1HZmtKbkcwbzdkR3loZE9sV0dzZ21WRm1PVFJYSlNES3B0MzU1VWttMlFxb2JUc2U3dTNmdjZlTjE5NUR2Y2dCWVFKYmFqR3dKYVB2NVZqNkJSeUNCREZidS9iSHRXejhKVUZ3MTB1MTdoTnhSb2xzc0ZaYW1aUW8zVWgwMGxnM21iRTg0Tmt6VVRObXhqVnQ1Zm9FNS9sMURsQk90STk2OEpvWlVqU0lIRm8ydmxEeFd3dUp1WmUxRS9kcDB0aEh6aHFGaTh1ekJKWldETUdvTVp5Z1I5WWpOMkxNWjJTaEdxT21rd0VZYXdpMXlpbmlYc25kOXk1eTZQMEtSOGtSRlFERUlwNlF1YVR1STcvTCswZDMxL1NuV2M1MWMxWXZwWm5hZXVkRE1kY1BFdmhOQksrTGtpL0dMY0huMGpxdGVkY0lFZ3hiVjFXUWxXSlk4SU40Y25QNEFLVGJ6dUJzQ0FBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"UK","2":"cash_or_other_forms_of_legal_tender","3":"34"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGNvdW50cnkpICU+JSBcbiAgZmlsdGVyKGNvdW50cnkgPT0gXCJDYW5hZGFcIikgJT4lIFxuICBncm91cF9ieShjb3VudHJ5LCBjYW5keV90eXBlKSAlPiUgXG4gIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSBcbiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, country) %&gt;% 
-  filter(country == &quot;Canada&quot;) %&gt;% 
-  group_by(country, candy_type) %&gt;% 
-  summarise(reaction_total = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2NvdW50cnknLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZVxuYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
-<pre><code>`summarise()` has grouped output by &#39;country&#39;. You can override using the
-`.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAzIl0sIkdyb3VwcyI6WyJjb3VudHJ5IFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFUVXZFTUJDZGRodVhMZXhTOE9LZmFFSDA0RkZRL0FHaXNMY3kyMmExR0NjbFRWbnJ5VisrYXo0YVdUT1FkSGh2K3VhOVBEOXViL0p0RGdBTHlGSnpNOU1DZTMxNUt1L0FJWkJBQml2Ny9UTDBwWnNFS002SWl3Y2tiREZDcjVDbWVqOEtVUS9kTjIvckJxbWQ2aDBxdzIzczNMMzhBVi8vMXJCRzREQkVZbm1MR3F1OXdrOGVqYStVUEZSa2NQdkwycHpVcXA1TXhicGhxUEJoSGJoczVFaGFUV0dOTjZtbm5zL0lSbkZzZENlcDFsS2pNTWd4MGwzSzN2SkdPYldQd3lMbmlZcUFZaVRycEMyYjk1RSt5dXRidTlmeHZ0WnpuNXoxQzc4ek84MWFMTHc4cDdlT2dsY21jTWZGbjNGNWNJbXJYbldrUTBDRERwV1BFaUpMRVJBWERvNi9OZkFEUlJRQ0FBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["candy_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["reaction_total"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Canada","2":"any_full_sized_candy_bar","3":"252"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIFxuICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGNvdW50cnkpICU+JSBcbiAgZmlsdGVyKGNvdW50cnkgIT0gXCJDYW5hZGFcIiAmIGNvdW50cnkgIT0gXCJVU1wiICYgY291bnRyeSAhPSBcIlVLXCIpICU+JSBcbiAgZ3JvdXBfYnkoY2FuZHlfdHlwZSkgJT4lICNub3QgZ3JvdXBpbmcgYnkgY291bnRyeSB0byBhbGxvdyBmb3IgYWxsIG90aGVyc1xuICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWxfUm9XID0gc3VtKHJlYWN0aW9uKSkgJT4lIFxuICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWxfUm9XKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIFxuICBoZWFkKDEpXG5gYGAifQ== -->
-<pre class="r"><code>full_data_numeric_react %&gt;% 
-  select(reaction, candy_type, country) %&gt;% 
-  filter(country != &quot;Canada&quot; &amp; country != &quot;US&quot; &amp; country != &quot;UK&quot;) %&gt;% 
-  group_by(candy_type) %&gt;% #not grouping by country to allow for all others
-  summarise(reaction_total_RoW = sum(reaction)) %&gt;% 
-  arrange(desc(reaction_total_RoW), .by_group = TRUE) %&gt;% 
-  head(1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRUVU3RE1CRGN1RFdva1ZwVmNPRVRpVlRCZ1NNSHhBTXFFTDFaYnVLV0NHTkh0aU1JSjk3RUExdldqbE1WNzJHOW52WE1lbmI5dUxuTk56a0FUR0JLTUZNc2diNDhQeFgzRUJESVlBb3pmMzVoK3hvTER5N1BHamRjOVd6WFNjbHM4eTFxVm5GVjkyekxEZllXL3QzRDd4NkcrQ2RJRmY4UU5vcVJDT1lEMi9XdGlNaVZFYnh5alZiTWFjY2xXK3ZYUkdobTlHYzVpczI5MkErbUkwWTZzWkxjMnVUN2VjMGRMM2NHK1hnN0pKUkwzZnJaU0NMZU8wM0ltVW1BWmFmOFQrcWlldXZVZTdHNjh4TkNmNGg1ckxPem1nd3p5VEZxMGFoMUlkUytVZU1lcU9SYkllTmxnWmFENDdJMWpYS2pGVVJ0R2RaMFdxZVdJeExNd2VFUGVFZ09TL01CQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["candy_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["reaction_total_RoW"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"any_full_sized_candy_bar","2":"4711"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-</div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGF0dGVybiA8LSBcIi5jb21cIlxuXG5kb2dzICU+JSBcbiAgc3RyX2NvdW50KHBhdHRlcm4pXG5gYGAifQ== -->
+<pre class="r"><code>pattern &lt;- &quot;.com&quot;
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoaGVyZSkKYGBgCgpgYGB7cn0KZnVsbF9kYXRhIDwtIHJlYWQuY3N2KCJmdWxsX2RhdGEuY3N2IikKZ2xpbXBzZShmdWxsX2RhdGEpCmBgYAoKIyMjIFdoYXQgaXMgdGhlIHRvdGFsIG51bWJlciBvZiBjYW5keSByYXRpbmdzIGdpdmVuIGFjcm9zcyB0aGUgdGhyZWUgeWVhcnMuIChOdW1iZXIgb2YgY2FuZHkgcmF0aW5ncywgbm90IHRoZSBudW1iZXIgb2YgcmF0ZXJzLiBEb27igJl0IGNvdW50IG1pc3NpbmcgdmFsdWVzKQoKYGBge3J9CmZ1bGxfZGF0YSAlPiUgI25vIGZpbHRlciBuZWVkZWQgYXMgTkFzIGFscmVhZHkgcmVtb3ZlZAogIHNlbGVjdChyZWFjdGlvbikgJT4lIAogIG5yb3coKQpgYGAKCiMjIyBXaGF0IHdhcyB0aGUgYXZlcmFnZSBhZ2Ugb2YgcGVvcGxlIHdobyBhcmUgZ29pbmcgb3V0IHRyaWNrIG9yIHRyZWF0aW5nCmBgYHtyfQp1bmlxdWUoZnVsbF9kYXRhJGFnZSkgI2NoZWNraW5nIGNoYW5nZSB0byBudW1lcmljIGNvZXJjZWQgb3V0bGllcnMgdG8gTkEKdW5pcXVlKGZ1bGxfZGF0YSRnb2luZ19vdXQpIAoKZnVsbF9kYXRhICU+JSAKICBmaWx0ZXIoZ29pbmdfb3V0ID09ICJZZXMiLCAKICAgICAgICAgYWdlICE9ICJJbmYiLAogICAgICAgICBhZ2UgPD0gMTE4KSAlPiUgI29sZGVzdCBsaXZpbmcgcGVyc29uCiAgc3VtbWFyaXNlKGF2Z19hZ2UgPSBtZWFuKGFnZSkpICU+JSAKICByb3VuZCgpCmBgYAojIyMgIFdoYXQgd2FzIHRoZSBhdmVyYWdlIGFnZSBvZiBwZW9wbGUgd2hvIGFyZSBub3QgZ29pbmcgdHJpY2sgb3IgdHJlYXRpbmc/CmBgYHtyfQpmdWxsX2RhdGEgJT4lIAogIGZpbHRlcihnb2luZ19vdXQgPT0gIk5vIiwgCiAgICAgICAgIGFnZSAhPSAiSW5mIiwKICAgICAgICAgYWdlIDw9IDExOCkgJT4lIAogIHN1bW1hcmlzZShhdmdfYWdlID0gbWVhbihhZ2UpKSAlPiUgCiAgcm91bmQoKQpgYGAKIyMjIEZvciBlYWNoIG9mIGpveSwgZGVzcGFpciBhbmQgbWVoLCB3aGljaCBjYW5keSBiYXIgcmVjZWl2ZWQgdGhlIG1vc3Qgb2YgdGhlc2UgcmF0aW5ncz8KYGBge3J9CmZ1bGxfZGF0YSAlPiUgCiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlKSAlPiUgCiAgZmlsdGVyKHJlYWN0aW9uID09ICJKT1kiKSAlPiUgCiAgZ3JvdXBfYnkoY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShqb3lfY291bnQ9bigpKSAlPiUgCiAgYXJyYW5nZShkZXNjKGpveV9jb3VudCkpICU+JSAKICBoZWFkKDEpCgpmdWxsX2RhdGEgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSkgJT4lIAogIGZpbHRlcihyZWFjdGlvbiA9PSAiREVTUEFJUiIpICU+JSAKICBncm91cF9ieShjYW5keV90eXBlKSAlPiUgCiAgc3VtbWFyaXNlKGRlc3BhaXJfY291bnQ9bigpKSAlPiUgCiAgYXJyYW5nZShkZXNjKGRlc3BhaXJfY291bnQpKSAlPiUgCiAgaGVhZCgxKQoKZnVsbF9kYXRhICU+JSAKICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUpICU+JSAKICBmaWx0ZXIocmVhY3Rpb24gPT0gIk1FSCIpICU+JSAKICBncm91cF9ieShjYW5keV90eXBlKSAlPiUgCiAgc3VtbWFyaXNlKG1laF9jb3VudD1uKCkpICU+JSAKICBhcnJhbmdlKGRlc2MobWVoX2NvdW50KSkgJT4lIAogIGhlYWQoMSkKYGBgCiMjI0hvdyBtYW55IHBlb3BsZSByYXRlZCBTdGFyYnVyc3QgYXMgZGVzcGFpcj8KYGBge3J9CmZ1bGxfZGF0YSAlPiUgCiAgZmlsdGVyKGNhbmR5X3R5cGUgPT0gInN0YXJidXJzdCIsIAogICAgICAgICByZWFjdGlvbiA9PSAiREVTUEFJUiIpICU+JSAKICBzdW1tYXJpc2Uoc3Rhcl9kZXNwYWlyX2NvdW50ID0gbigpKQpgYGAKIyMjV2hhdCB3YXMgdGhlIG1vc3QgcG9wdWxhciBjYW5keSBiYXIgYnkgdGhpcyByYXRpbmcgc3lzdGVtIGZvciBlYWNoIGdlbmRlciBpbiB0aGUgZGF0YXNldCA/CmBgYHtyfQpmdWxsX2RhdGFfbnVtZXJpY19yZWFjdCA8LSBmdWxsX2RhdGEgJT4lICNzZXR0aW5nIHJhdGluZyBzeXN0ZW0gCiAgbXV0YXRlKHJlYWN0aW9uID0gcmVjb2RlKHJlYWN0aW9uLCAiSk9ZIiA9IDEsICJNRUgiID0gMCwgIkRFU1BBSVIiID0gLTEpKQpgYGAKCmBgYHtyfQpmdWxsX2RhdGFfbnVtZXJpY19yZWFjdCAlPiUgCiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlLCBnZW5kZXIpICU+JSAKICBmaWx0ZXIoZ2VuZGVyID09ICJNYWxlIikgJT4lIAogIGdyb3VwX2J5KGdlbmRlciwgY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSAKICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgCiAgaGVhZCgxKQoKZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSwgZ2VuZGVyKSAlPiUgCiAgZmlsdGVyKGdlbmRlciA9PSAiRmVtYWxlIikgJT4lIAogIGdyb3VwX2J5KGdlbmRlciwgY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSAKICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgCiAgaGVhZCgxKQoKZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSwgZ2VuZGVyKSAlPiUgCiAgZmlsdGVyKGdlbmRlciA9PSAiT3RoZXIiKSAlPiUgCiAgZ3JvdXBfYnkoZ2VuZGVyLCBjYW5keV90eXBlKSAlPiUgCiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIAogIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSAKICBoZWFkKDEpCgpmdWxsX2RhdGFfbnVtZXJpY19yZWFjdCAlPiUgCiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlLCBnZW5kZXIpICU+JSAKICBmaWx0ZXIoZ2VuZGVyID09ICJJJ2QgcmF0aGVyIG5vdCBzYXkiKSAlPiUgCiAgZ3JvdXBfYnkoZ2VuZGVyLCBjYW5keV90eXBlKSAlPiUgCiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIAogIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSAKICBoZWFkKDEpCmBgYAoKIyMjV2hhdCB3YXMgdGhlIG1vc3QgcG9wdWxhciBjYW5keSBiYXIgaW4gZWFjaCB5ZWFyPwpgYGB7cn0KZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSwgeWVhcikgJT4lIAogIGZpbHRlcih5ZWFyID09ICIyMDE1IikgJT4lIAogIGdyb3VwX2J5KHllYXIsIGNhbmR5X3R5cGUpICU+JSAKICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgCiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIAogIGhlYWQoMSkKCmZ1bGxfZGF0YV9udW1lcmljX3JlYWN0ICU+JSAKICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIHllYXIpICU+JSAKICBmaWx0ZXIoeWVhciA9PSAiMjAxNiIpICU+JSAKICBncm91cF9ieSh5ZWFyLCBjYW5keV90eXBlKSAlPiUgCiAgc3VtbWFyaXNlKHJlYWN0aW9uX3RvdGFsID0gc3VtKHJlYWN0aW9uKSkgJT4lIAogIGFycmFuZ2UoZGVzYyhyZWFjdGlvbl90b3RhbCksIC5ieV9ncm91cCA9IFRSVUUpICU+JSAKICBoZWFkKDEpCgpmdWxsX2RhdGFfbnVtZXJpY19yZWFjdCAlPiUgCiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlLCB5ZWFyKSAlPiUgCiAgZmlsdGVyKHllYXIgPT0gIjIwMTciKSAlPiUgCiAgZ3JvdXBfYnkoeWVhciwgY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSAKICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgCiAgaGVhZCgxKQpgYGAKIyMjV2hhdCB3YXMgdGhlIG1vc3QgcG9wdWxhciBjYW5keSBiYXIgYnkgdGhpcyByYXRpbmcgZm9yIHBlb3BsZSBpbiBVUywgQ2FuYWRhLCBVSywgYW5kIGFsbCBvdGhlciBjb3VudHJpZXM/CmBgYHtyfQpmdWxsX2RhdGFfbnVtZXJpY19yZWFjdCAlPiUgCiAgc2VsZWN0KHJlYWN0aW9uLCBjYW5keV90eXBlLCBjb3VudHJ5KSAlPiUgCiAgZmlsdGVyKGNvdW50cnkgPT0gIlVTIikgJT4lIAogIGdyb3VwX2J5KGNvdW50cnksIGNhbmR5X3R5cGUpICU+JSAKICBzdW1tYXJpc2UocmVhY3Rpb25fdG90YWwgPSBzdW0ocmVhY3Rpb24pKSAlPiUgCiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsKSwgLmJ5X2dyb3VwID0gVFJVRSkgJT4lIAogIGhlYWQoMSkKCmZ1bGxfZGF0YV9udW1lcmljX3JlYWN0ICU+JSAKICBzZWxlY3QocmVhY3Rpb24sIGNhbmR5X3R5cGUsIGNvdW50cnkpICU+JSAKICBmaWx0ZXIoY291bnRyeSA9PSAiVUsiKSAlPiUgCiAgZ3JvdXBfYnkoY291bnRyeSwgY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSAKICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgCiAgaGVhZCgxKQoKZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSwgY291bnRyeSkgJT4lIAogIGZpbHRlcihjb3VudHJ5ID09ICJDYW5hZGEiKSAlPiUgCiAgZ3JvdXBfYnkoY291bnRyeSwgY2FuZHlfdHlwZSkgJT4lIAogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbCA9IHN1bShyZWFjdGlvbikpICU+JSAKICBhcnJhbmdlKGRlc2MocmVhY3Rpb25fdG90YWwpLCAuYnlfZ3JvdXAgPSBUUlVFKSAlPiUgCiAgaGVhZCgxKQoKZnVsbF9kYXRhX251bWVyaWNfcmVhY3QgJT4lIAogIHNlbGVjdChyZWFjdGlvbiwgY2FuZHlfdHlwZSwgY291bnRyeSkgJT4lIAogIGZpbHRlcihjb3VudHJ5ICE9ICJDYW5hZGEiICYgY291bnRyeSAhPSAiVVMiICYgY291bnRyeSAhPSAiVUsiKSAlPiUgCiAgZ3JvdXBfYnkoY2FuZHlfdHlwZSkgJT4lICNub3QgZ3JvdXBpbmcgYnkgY291bnRyeSB0byBhbGxvdyBmb3IgYWxsIG90aGVycwogIHN1bW1hcmlzZShyZWFjdGlvbl90b3RhbF9Sb1cgPSBzdW0ocmVhY3Rpb24pKSAlPiUgCiAgYXJyYW5nZShkZXNjKHJlYWN0aW9uX3RvdGFsX1JvVyksIC5ieV9ncm91cCA9IFRSVUUpICU+JSAKICBoZWFkKDEpCmBgYAoKCg==</div>
+dogs %&gt;% 
+  str_count(pattern)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiBzdHJpX2NvdW50X3JlZ2V4KHN0cmluZywgcGF0dGVybiwgb3B0c19yZWdleCA9IG9wdHMocGF0dGVybikpIDpcbiAgYXJndW1lbnQgaXMgbm90IGFuIGF0b21pYyB2ZWN0b3I7IGNvZXJjaW5nXG4ifQ== -->
+<pre><code>Warning in stri_count_regex(string, pattern, opts_regex = opts(pattern)) :
+  argument is not an atomic vector; coercing</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAgMCAgIDAgICAwICAgMiAxNzggICAwICAgMCAgIDAgICAwXG4ifQ== -->
+<pre><code>[1]   0   0   0   2 178   0   0   0   0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>###What’s the average amount spent on dog food for each dog size.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9ncyAlPiUgXG4gIHNlbGVjdChkb2dfc2l6ZSwgYW1vdW50X3NwZW50X29uX2RvZ19mb29kKSAlPiUgXG4gIGdyb3VwX2J5KGRvZ19zaXplKSAlPiUgXG4gIHN1bW1hcmlzZShhdmdfc3BlbmQgPSBtZWFuKGFtb3VudF9zcGVudF9vbl9kb2dfZm9vZCkpXG5gYGAifQ== -->
+<pre class="r"><code>dogs %&gt;% 
+  select(dog_size, amount_spent_on_dog_food) %&gt;% 
+  group_by(dog_size) %&gt;% 
+  summarise(avg_spend = mean(amount_spent_on_dog_food))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI2IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREbWl1QmlZR0JnWm1CaEFwS3NRQ1lEYTJpSW02NEZBMWlFZ1pHQmhZRVRSRmNBcFlXQkRKQ2dBQkN6d1NSOFlBeGZHQ01ZeW1DSzhJR3pnb0VrNTM4Z0FOSjhJTzBPbnErL243c3AxdTdndnVCV0NlOXlSd2ZQZzdQRHo1WW9PSGgybHExN0hhWHE0TFAweXVGTkN5YzQrTTFyM1BKQzJoL05QYXg1aWJtcHhWQzNNRUVGT1ZMeTArT0xNNnRTb1h6T3hESWd2eUExTHdWTk4yZFJmcmtlekFSZWtBa05RQUxvdWwvbzFpVG5KQmJEcklFSmNxVWtsaVRxcFJVQjlRTjUvOUMwc09jWGxHVG01d0UxTVlIQ2l4Vk5NMk1SbW9CQWFSN0lKU202eVJtbGVkbTZSaFlnRzhEeUVNQUxaYk1oc1prZ2RqTDloNXJGQ2pXTExUVXZQVE1QNW4zV25NU2sxQndvaHcvb1piQ1A5UXFLTXZOS1lGNEJpaGJybGVTWEpNTFVjU1huNThCRXdKNWorQWNBSkxtaUhDY0NBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["dog_size"],"name":[1],"type":["chr"],"align":["left"]},{"label":["avg_spend"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"L","2":"51.84350"},{"1":"M","2":"47.25667"},{"1":"S","2":"51.51255"},{"1":"XL","2":"51.07393"},{"1":"XS","2":"57.29556"},{"1":"NA","2":"61.23833"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>###For owners whose surname starts with a letter in the second half
+of the alphabet (N onwards) what is the average age of their dog?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkocmVhZHIpCmxpYnJhcnkodGlkeXNlbGVjdCkKZG9ncyA8LSByZWFkLmNzdigiZG9ncy5jc3YiKQp2aWV3KGRvZ3MpCmBgYAoKIyMjVGhlIGNsaWVudCBvbmx5IGNvdW50cyBhIHZhbGlkIGVtYWlsIGFkZHJlc3MgYXMgb25lIGVuZGluZyBpbiDigJguY29t4oCZLiBIb3cgbWFueSBzdXJ2ZXkgcmVzdWx0cyBoYXZlIGEgdmFsaWQgZW1haWwgYWRkcmVzcy4KCmBgYHtyfQpwYXR0ZXJuIDwtICIuY29tIgoKZG9ncyAlPiUgCiAgc3RyX2NvdW50KHBhdHRlcm4pCmBgYAoKIyMjV2hhdOKAmXMgdGhlIGF2ZXJhZ2UgYW1vdW50IHNwZW50IG9uIGRvZyBmb29kIGZvciBlYWNoIGRvZyBzaXplLgpgYGB7cn0KZG9ncyAlPiUgCiAgc2VsZWN0KGRvZ19zaXplLCBhbW91bnRfc3BlbnRfb25fZG9nX2Zvb2QpICU+JSAKICBncm91cF9ieShkb2dfc2l6ZSkgJT4lIAogIHN1bW1hcmlzZShhdmdfc3BlbmQgPSBtZWFuKGFtb3VudF9zcGVudF9vbl9kb2dfZm9vZCkpCmBgYAojIyNGb3Igb3duZXJzIHdob3NlIHN1cm5hbWUgc3RhcnRzIHdpdGggYSBsZXR0ZXIgaW4gdGhlIHNlY29uZCBoYWxmIG9mIHRoZSBhbHBoYWJldCAoTiBvbndhcmRzKSB3aGF0IGlzIHRoZSBhdmVyYWdlIGFnZSBvZiB0aGVpciBkb2c/CmBgYHtyfQoKYGBgCgo=</div>
 
 
 
@@ -2252,7 +1871,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("analysis.Rmd");
+  window.initializeSourceEmbed("analysis_and_documentation.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
