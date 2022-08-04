@@ -22,13 +22,14 @@ long_decathlon_data %>%
 long_decathlon_data %>% 
   filter(discipline == "x100m") %>% 
   group_by(competition) %>% 
-  summarise(mean(score))
+  summarise(avg_time = mean(score)) %>% 
+  mutate(avg_time = as.numeric(avg_time))
 ```
-#highest points total across both competitions ####
+#highest points total across both competitionsc
 ```{r}
 long_decathlon_data %>% 
   group_by(name) %>% 
-  mutate(total_points = mean(points)*2) %>% 
+  mutate(total_points = mean(points)*2) %>% #work aorund as sum adds all points
   arrange(desc(total_points)) %>% 
   select(name, total_points) %>%
   head(1)

@@ -1770,10 +1770,11 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeSh0aWR5c2VsZWN0KVxuZG9ncyA8LSByZWFkLmNzdihcImRvZ3MuY3N2XCIpXG52aWV3KGRvZ3MpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeSh0aWR5c2VsZWN0KVxubGlicmFyeSh0aWR5cilcbmRvZ3MgPC0gcmVhZC5jc3YoXCJkb2dzLmNzdlwiKVxudmlldyhkb2dzKVxuYGBgIn0= -->
 <pre class="r"><code>library(tidyverse)
 library(readr)
 library(tidyselect)
+library(tidyr)
 dogs &lt;- read.csv(&quot;dogs.csv&quot;)
 view(dogs)</code></pre>
 <!-- rnb-source-end -->
@@ -1807,7 +1808,7 @@ dogs %&gt;%
   group_by(dog_size) %&gt;% 
   summarise(avg_spend = mean(amount_spent_on_dog_food))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI2IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREbWl1QmlZR0JnWm1CaEFwS3NRQ1lEYTJpSW02NEZBMWlFZ1pHQmhZRVRSRmNBcFlXQkRKQ2dBQkN6d1NSOFlBeGZHQ01ZeW1DSzhJR3pnb0VrNTM4Z0FOSjhJTzBPbnErL243c3AxdTdndnVCV0NlOXlSd2ZQZzdQRHo1WW9PSGgybHExN0hhWHE0TFAweXVGTkN5YzQrTTFyM1BKQzJoL05QYXg1aWJtcHhWQzNNRUVGT1ZMeTArT0xNNnRTb1h6T3hESWd2eUExTHdWTk4yZFJmcmtlekFSZWtBa05RQUxvdWwvbzFpVG5KQmJEcklFSmNxVWtsaVRxcFJVQjlRTjUvOUMwc09jWGxHVG01d0UxTVlIQ2l4Vk5NMk1SbW9CQWFSN0lKU202eVJtbGVkbTZSaFlnRzhEeUVNQUxaYk1oc1prZ2RqTDloNXJGQ2pXTExUVXZQVE1QNW4zV25NU2sxQndvaHcvb1piQ1A5UXFLTXZOS1lGNEJpaGJybGVTWEpNTFVjU1huNThCRXdKNWorQWNBSkxtaUhDY0NBQUE9In0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI2IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREbWl1QmlZR0JnWm1CaEFwS3NRQ1lEYTJpSW02NEZBMWlFZ1pHQmhZRVRSRmNBcFlXQkRKQ2dBQkN6d1NSOFlBeGZHQ01ZeW1DSzhJR3pnb0VrNTM4Z0FOSjhJTzBPbnErL243c3AxdTdndnVCV0NlOXlSd2ZQZzdQRHo1WW9PSGgybHExN0hhWHE0TFAweXVGTkN5YzQrTTFyM1BKQzJoL05QYXg1aWJtcHhWQzNNRUVGT1ZMeTArT0xNNnRTb1h6T3hESWd2eUExTHdWTk4yZFJmcmtlekFSZWtBa05RQUxvdWwvbzFpVG5KQmJEcklFSmNxVWtsaVRxcFJVQjlRTjUvOUMwc09jWGxHVG01d0UxTVlIQ2l4Vk5NMk1SbWdCL2FSN0lKU202eVJtbGVkbTZsaUFMd05JUXdBdGxzeUd4bVNCV012MkhHc1VLTllvdE5TODlNdy9tZTlhY3hLVFVIQ2lIRCtoanNJZjFDb295ODBwZ1BnR0tGdXVWNUpja3d0UnhKZWZud0VUQWZtUDRCd0FTRUhTeEpnSUFBQT09In0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["dog_size"],"name":[1],"type":["chr"],"align":["left"]},{"label":["avg_spend"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"L","2":"51.84350"},{"1":"M","2":"47.25667"},{"1":"S","2":"51.51255"},{"1":"XL","2":"51.07393"},{"1":"XS","2":"57.29556"},{"1":"NA","2":"61.23833"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
@@ -1820,11 +1821,33 @@ dogs %&gt;%
 of the alphabet (N onwards) what is the average age of their dog?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9ncyA8LSBkb2dzICU+JSBcbiAgbXV0YXRlKGRvZ19hZ2UgPSBuYV9pZihkb2dfYWdlLCBcIkxlc3MgdGhhbiAyMFwiKSxcbiAgICAgICAgIGRvZ19hZ2UgPSBuYV9pZihkb2dfYWdlLCBcIjMsMyw1XCIpLFxuICAgICAgICAgZG9nX2FnZSA9IG5hX2lmKGRvZ19hZ2UsIFwiMTIrXCIpLFxuICAgICAgICAgZG9nX2FnZSA9IG5hX2lmKGRvZ19hZ2UsIFwiXCIpLFxuICAgICAgICAgZHJvcF9uYSgpKVxuXG5gYGAifQ== -->
+<pre class="r"><code>dogs &lt;- dogs %&gt;% 
+  mutate(dog_age = na_if(dog_age, &quot;Less than 20&quot;),
+         dog_age = na_if(dog_age, &quot;3,3,5&quot;),
+         dog_age = na_if(dog_age, &quot;12+&quot;),
+         dog_age = na_if(dog_age, &quot;&quot;),
+         drop_na())
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gYG11dGF0ZSgpYDpcbiEgUHJvYmxlbSB3aGlsZSBjb21wdXRpbmcgYC4uNSA9IGRyb3BfbmEoKWAuXG5DYXVzZWQgYnkgZXJyb3IgaW4gYFVzZU1ldGhvZCgpYDpcbiEgbm8gYXBwbGljYWJsZSBtZXRob2QgZm9yICdkcm9wX25hJyBhcHBsaWVkIHRvIGFuIG9iamVjdCBvZiBjbGFzcyBcIk5VTExcIlxuQmFja3RyYWNlOlxuIDEuIGRvZ3MgJT4lIC4uLlxuIDcuIHRpZHlyOjpkcm9wX25hKClcbiJ9 -->
+<pre><code>Error in `mutate()`:
+! Problem while computing `..5 = drop_na()`.
+Caused by error in `UseMethod()`:
+! no applicable method for &#39;drop_na&#39; applied to an object of class &quot;NULL&quot;
+Backtrace:
+ 1. dogs %&gt;% ...
+ 7. tidyr::drop_na()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkocmVhZHIpCmxpYnJhcnkodGlkeXNlbGVjdCkKZG9ncyA8LSByZWFkLmNzdigiZG9ncy5jc3YiKQp2aWV3KGRvZ3MpCmBgYAoKIyMjVGhlIGNsaWVudCBvbmx5IGNvdW50cyBhIHZhbGlkIGVtYWlsIGFkZHJlc3MgYXMgb25lIGVuZGluZyBpbiDigJguY29t4oCZLiBIb3cgbWFueSBzdXJ2ZXkgcmVzdWx0cyBoYXZlIGEgdmFsaWQgZW1haWwgYWRkcmVzcy4KCmBgYHtyfQpwYXR0ZXJuIDwtICIuY29tIgoKZG9ncyAlPiUgCiAgc3RyX2NvdW50KHBhdHRlcm4pCmBgYAoKIyMjV2hhdOKAmXMgdGhlIGF2ZXJhZ2UgYW1vdW50IHNwZW50IG9uIGRvZyBmb29kIGZvciBlYWNoIGRvZyBzaXplLgpgYGB7cn0KZG9ncyAlPiUgCiAgc2VsZWN0KGRvZ19zaXplLCBhbW91bnRfc3BlbnRfb25fZG9nX2Zvb2QpICU+JSAKICBncm91cF9ieShkb2dfc2l6ZSkgJT4lIAogIHN1bW1hcmlzZShhdmdfc3BlbmQgPSBtZWFuKGFtb3VudF9zcGVudF9vbl9kb2dfZm9vZCkpCmBgYAojIyNGb3Igb3duZXJzIHdob3NlIHN1cm5hbWUgc3RhcnRzIHdpdGggYSBsZXR0ZXIgaW4gdGhlIHNlY29uZCBoYWxmIG9mIHRoZSBhbHBoYWJldCAoTiBvbndhcmRzKSB3aGF0IGlzIHRoZSBhdmVyYWdlIGFnZSBvZiB0aGVpciBkb2c/CmBgYHtyfQoKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkocmVhZHIpCmxpYnJhcnkodGlkeXNlbGVjdCkKbGlicmFyeSh0aWR5cikKZG9ncyA8LSByZWFkLmNzdigiZG9ncy5jc3YiKQp2aWV3KGRvZ3MpCmBgYAoKIyMjVGhlIGNsaWVudCBvbmx5IGNvdW50cyBhIHZhbGlkIGVtYWlsIGFkZHJlc3MgYXMgb25lIGVuZGluZyBpbiDigJguY29t4oCZLiBIb3cgbWFueSBzdXJ2ZXkgcmVzdWx0cyBoYXZlIGEgdmFsaWQgZW1haWwgYWRkcmVzcy4KCmBgYHtyfQpwYXR0ZXJuIDwtICIuY29tIgoKZG9ncyAlPiUgCiAgc3RyX2NvdW50KHBhdHRlcm4pCmBgYAoKIyMjV2hhdOKAmXMgdGhlIGF2ZXJhZ2UgYW1vdW50IHNwZW50IG9uIGRvZyBmb29kIGZvciBlYWNoIGRvZyBzaXplLgpgYGB7cn0KZG9ncyAlPiUgCiAgc2VsZWN0KGRvZ19zaXplLCBhbW91bnRfc3BlbnRfb25fZG9nX2Zvb2QpICU+JSAKICBncm91cF9ieShkb2dfc2l6ZSkgJT4lIAogIHN1bW1hcmlzZShhdmdfc3BlbmQgPSBtZWFuKGFtb3VudF9zcGVudF9vbl9kb2dfZm9vZCkpCmBgYAojIyNGb3Igb3duZXJzIHdob3NlIHN1cm5hbWUgc3RhcnRzIHdpdGggYSBsZXR0ZXIgaW4gdGhlIHNlY29uZCBoYWxmIG9mIHRoZSBhbHBoYWJldCAoTiBvbndhcmRzKSB3aGF0IGlzIHRoZSBhdmVyYWdlIGFnZSBvZiB0aGVpciBkb2c/CmBgYHtyfQpkb2dzIDwtIGRvZ3MgJT4lIAogIG11dGF0ZShkb2dfYWdlID0gbmFfaWYoZG9nX2FnZSwgIkxlc3MgdGhhbiAyMCIpLAogICAgICAgICBkb2dfYWdlID0gbmFfaWYoZG9nX2FnZSwgIjMsMyw1IiksCiAgICAgICAgIGRvZ19hZ2UgPSBuYV9pZihkb2dfYWdlLCAiMTIrIiksCiAgICAgICAgIGRvZ19hZ2UgPSBuYV9pZihkb2dfYWdlLCAiIiksCiAgICAgICAgIGRyb3BfbmEoKSkKICAKICAKZG9ncyAlPiUgCiAgc2VwYXJhdGUoZnVsbF9uYW1lLCBjKCJmaXJzdF9uYW1lIiwgInNlY29uZF9uYW1lIiksIHNlcCA9ICIgIikgJT4lIGZpbHRlcihzZWNvbmRfbmFtZSA+ICJOIikgJT4lIAogIG11dGF0ZShkb2dfYWdlID0gYXMubnVtZXJpYyhkb2dfYWdlKSkgJT4lIAogIHN1bW1hcmlzZShhdmdfYWdlID0gbWVhbihkb2dfYWdlKSkKCnVuaXF1ZShkb2dzJGRvZ19hZ2UpCmBgYAoKYGBge3J9CgpgYGAKCg==</div>
 
 
 

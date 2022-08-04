@@ -6,6 +6,7 @@ output: html_notebook
 library(tidyverse)
 library(readr)
 library(tidyselect)
+library(tidyr)
 dogs <- read.csv("dogs.csv")
 view(dogs)
 ```
@@ -27,6 +28,23 @@ dogs %>%
   summarise(avg_spend = mean(amount_spent_on_dog_food))
 ```
 ###For owners whose surname starts with a letter in the second half of the alphabet (N onwards) what is the average age of their dog?
+```{r}
+dogs <- dogs %>% 
+  mutate(dog_age = na_if(dog_age, "Less than 20"),
+         dog_age = na_if(dog_age, "3,3,5"),
+         dog_age = na_if(dog_age, "12+"),
+         dog_age = na_if(dog_age, ""),
+         drop_na())
+  
+  
+dogs %>% 
+  separate(full_name, c("first_name", "second_name"), sep = " ") %>% filter(second_name > "N") %>% 
+  mutate(dog_age = as.numeric(dog_age)) %>% 
+  summarise(avg_age = mean(dog_age))
+
+unique(dogs$dog_age)
+```
+
 ```{r}
 
 ```

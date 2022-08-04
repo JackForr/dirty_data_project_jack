@@ -1770,25 +1770,9 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyUIGdncGxvdDIgMy4zLjYgICAgIOKclCBwdXJyciAgIDAuMy40XG7inJQgdGliYmxlICAzLjEuNyAgICAg4pyUIGRwbHlyICAgMS4wLjlcbuKclCB0aWR5ciAgIDEuMi4wICAgICDinJQgc3RyaW5nciAxLjQuMFxu4pyUIHJlYWRyICAgMi4xLjIgICAgIOKclCBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG7inJYgZHBseXI6OmZpbHRlcigpIG1hc2tzIHN0YXRzOjpmaWx0ZXIoKVxu4pyWIGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ──────────────────────────────────── tidyverse 1.3.1 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.7     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-── Conflicts ─────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShoZXJlKVxuYGBgIn0= -->
-<pre class="r"><code>library(here)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGhlcmUpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)
+library(here)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCAvVXNlcnMvdXNlci9Eb2N1bWVudHMvZGlydHlfZGF0YV9wcm9qZWN0X2phY2svVGFza18xXG4ifQ== -->
 <pre><code>here() starts at /Users/user/Documents/dirty_data_project_jack/Task_1</code></pre>
@@ -1798,14 +1782,15 @@ pre code {
 long_decathlon_data &lt;- select(long_decathlon_data, -1)
 glimpse(long_decathlon_data)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDUxXG5Db2x1bW5zOiA1XG4kIG5hbWUgICAgICAgIDxjaHI+IFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicuKAplxuJCBwb2ludHMgICAgICA8aW50PiA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA4MjE3LCA44oCmXG4kIGNvbXBldGl0aW9uIDxjaHI+IFwiRGVjYXN0YXJcIiwgXCJEZWNhc3RhclwiLCBcIkRlY2FzdGFyXCIsIFwiRGVjYXN0YXJcIiwgXCJEZWNhc3TigKZcbiQgZGlzY2lwbGluZSAgPGNocj4gXCJ4MTAwbVwiLCBcImxvbmdfanVtcFwiLCBcInNob3RfcHV0XCIsIFwiaGlnaF9qdW1wXCIsIFwieDQwMG1cIizigKZcbiQgc2NvcmUgICAgICAgPGRibD4gMTEuMDQsIDcuNTgsIDE0LjgzLCAyLjA3LCA0OS44MSwgMTQuNjksIDQzLjc1LCA1LjAyLCA2M+KAplxuIn0= -->
-<pre><code>Rows: 451
-Columns: 5
-$ name        &lt;chr&gt; &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebr…
-$ points      &lt;int&gt; 8217, 8217, 8217, 8217, 8217, 8217, 8217, 8217, 8217, 8…
-$ competition &lt;chr&gt; &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Decast…
-$ discipline  &lt;chr&gt; &quot;x100m&quot;, &quot;long_jump&quot;, &quot;shot_put&quot;, &quot;high_jump&quot;, &quot;x400m&quot;,…
-$ score       &lt;dbl&gt; 11.04, 7.58, 14.83, 2.07, 49.81, 14.69, 43.75, 5.02, 63…</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDEwXG5Db2x1bW5zOiA2XG4kIG5hbWUgICAgICAgIDxjaHI+IFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2VicmxlXCIsIFwiU2XigKZcbiQgcmFuayAgICAgICAgPGludD4gMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMizigKZcbiQgcG9pbnRzICAgICAgPGludD4gODIxNywgODIxNywgODIxNywgODIxNywgODIxNywgODIxNywgODIxNywgODIxNywgODIxNyzigKZcbiQgY29tcGV0aXRpb24gPGNocj4gXCJEZWNhc3RhclwiLCBcIkRlY2FzdGFyXCIsIFwiRGVjYXN0YXJcIiwgXCJEZWNhc3RhclwiLCBcIkRlY2HigKZcbiQgZGlzY2lwbGluZSAgPGNocj4gXCJ4MTAwbVwiLCBcImxvbmdfanVtcFwiLCBcInNob3RfcHV0XCIsIFwiaGlnaF9qdW1wXCIsIFwieDQwMG3igKZcbiQgc2NvcmUgICAgICAgPGRibD4gMTEuMDQsIDcuNTgsIDE0LjgzLCAyLjA3LCA0OS44MSwgMTQuNjksIDQzLjc1LCA1LjAyLCDigKZcbiJ9 -->
+<pre><code>Rows: 410
+Columns: 6
+$ name        &lt;chr&gt; &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Sebrle&quot;, &quot;Se…
+$ rank        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,…
+$ points      &lt;int&gt; 8217, 8217, 8217, 8217, 8217, 8217, 8217, 8217, 8217,…
+$ competition &lt;chr&gt; &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Decastar&quot;, &quot;Deca…
+$ discipline  &lt;chr&gt; &quot;x100m&quot;, &quot;long_jump&quot;, &quot;shot_put&quot;, &quot;high_jump&quot;, &quot;x400m…
+$ score       &lt;dbl&gt; 11.04, 7.58, 14.83, 2.07, 49.81, 14.69, 43.75, 5.02, …</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1819,7 +1804,7 @@ $ score       &lt;dbl&gt; 11.04, 7.58, 14.83, 2.07, 49.81, 14.69, 43.75, 5.02, 6
   arrange(desc(score)) %&gt;% 
   head(1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mywic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSDDlyAzXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBTMDRFSVJSOC9VSFRKSTRtSG1CTzBMMXhvUnNURTQwSE1Kck16akIwTzZJMEVLQ2puc2REelczR0FRU25aUUU4NnIycWV2Vnd0N3JBS3d3QUZkU2x1NUVyQVQwOTNyZFhFQkFvb0liR3Y1K3VmUjRtQWM1bWpmcVdrNjhNYTdnVW0rZTNhVlR1cy9DTm0rVVdYNnZ2YmFhS0JCa0hFOWxWVXZSZ3JISFBER1dLTTVFUVpLalVRNmJUYVBuUkphMlQwQWpudnhubHhKaHNWZHdUUzdvWDdTMEJkaG5sV0NyTHBIQ2swbWRIR2JuUUdYQTZDYjlGMzlMWFNieTNsOTdnc00xOHM3KzYrclVzZjZJVWlsSkhnOWpNVW5PeUhuajhMRnphRUxaVG1nbWJrampVZEZaYWt1WXdsVHdoSVJ2czl0dXQ4enJ5QVFBQSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mywic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSDDlyAzXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBTMDRFSVJSOC9VSFRKSTRtSG1CTzBMM1FqUnNURTQwSE1Kck16akIwTzZJMEVLQ2puc2REelczR0FRU25aUUU4NnIycWV2Vnd0N3JFS3d3QUZkU2x1NUVyQVQwOTNyZFhFQkFvb0liR3Y1K3VmUjRtQWM1bWpmcVdrNjhNYTdnVW0rZTNhVlR1cy9DTm0rVVdYNnZ2YmFhS0JCa0hFOWxWVXZSZ3JISFBER1dLTTVFUVpLalVRNmJUYVBuUkphMlQwQWpudnhubHhKaHNWZHdUUzdvWDdTMEJkaG5sV0NyTHBIQ2swbWRIR2JuUUdYQTZDYjlGMzlMWFNieTNGOTdnc00xOHM3KzYrclVzZjZJVWlsSkhnOWpNVW5PeUhuajhMRnphRUxaVG1nbWJrampVZEZaYWt1WXdsVHdoSVJ2czlqQUJwQS95QVFBQSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["discipline"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Clay","2":"long_jump","3":"7.96","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -1831,33 +1816,34 @@ $ score       &lt;dbl&gt; 11.04, 7.58, 14.83, 2.07, 49.81, 14.69, 43.75, 5.02, 6
 <p>#average 100m time in each competition</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgXG4gIGZpbHRlcihkaXNjaXBsaW5lID09IFwieDEwMG1cIikgJT4lIFxuICBncm91cF9ieShjb21wZXRpdGlvbikgJT4lIFxuICBzdW1tYXJpc2UobWVhbihzY29yZSkpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgXG4gIGZpbHRlcihkaXNjaXBsaW5lID09IFwieDEwMG1cIikgJT4lIFxuICBncm91cF9ieShjb21wZXRpdGlvbikgJT4lIFxuICBzdW1tYXJpc2UoYXZnX3RpbWUgPSBtZWFuKHNjb3JlKSkgJT4lIFxuICBtdXRhdGUoYXZnX3RpbWUgPSBhcy5udW1lcmljKGF2Z190aW1lKSlcbmBgYCJ9 -->
 <pre class="r"><code>long_decathlon_data %&gt;% 
   filter(discipline == &quot;x100m&quot;) %&gt;% 
   group_by(competition) %&gt;% 
-  summarise(mean(score))</code></pre>
+  summarise(avg_time = mean(score)) %&gt;% 
+  mutate(avg_time = as.numeric(avg_time))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRTVU0RE1SRGNYR0pDakJLUWVBTVJGTG1HaGdxbGlLQkVpa0JLU3VNWXNQRFpKOXNSME9VWi9JVXZVRkJROEFOK2tXUHRuQXZzd3A2ZDNaM2Q4WHkyT0tjTENnQmQ2QlY0RTRSQTdtNnZKaGNRR2VoQUR3YmhmY1gwTVlKQUhzVjNsOWlmQ2M2Y1p6YkZOK3F0cWlXL1Jqd0tkZFB4OHJNN2Z2K2FubnovYkQ0dWZ6TmhvbGtsWENaNndFMVZDeSs5TkRwUmxXRDYxSEZqeFZrbU1iRG1wVXd5d3lDendhdHBtbTAraXl2bTBxeEUwaFh6ckh5dzJJOVIzdEkzZFZnQ200cmdubVROSFpzUmgyc2RObGxOK05OYVA0ZHZCQnJUdXpOc2NmRWZoNUZGMDBxUlZtcFA2RWVwUmRwZHNYdWgybUNFanFQaHNyWlMrK1FFV1ZkNjQxbXFvOXlveEVSdnNQMERRem8yOHZRQkFBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFQTzA0RE1SQ2RiR0pDRmlVZzVReWsyMjNTVUtFVUVaUklpRWloUW9OamdvWFhYdTA2ZkxvY2c3dHdCUW9LQ203QUxiSjRuSFdCWFl6ZnZKbDVNKzk2dnB5bXl4UUF1dEJMWEdRT0FsdmNYR1JuNEJub1FBOEc5TCs2OHRnQklrLzh2eThjemdYSDJtSVY4aXYxVnBTU1h6bzhvcjdaNVBhek8zbi9tcDErLzJ3L3puOGpZYWF4RUhVa2VzUk5VUW9yclRRNjZPTHorczdLUWtUemc4cTg1RUZqU0JwYkY1cW0yY1dMdU1JNkxBcGt1a0tMK1VPRnBBdnhTTitVZElFYlNzZzZpNFk3VlVRY2J6UmRzc3I0NDBZL1pWTmE0TXY3TjJ4eDhoL1R5cVJwcFZncmRTRDBXbW9SYmxkNEwxU2JqSnhqYnpndks2bHRjT0xZT3JmR1l1aEx1VkdCOGQ1Zzl3ZW1uYThpOFFFQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["competition"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean(score)"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Decastar","2":"11.17538"},{"1":"OlympicG","2":"10.91571"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+{"columns":[{"label":["competition"],"name":[1],"type":["chr"],"align":["left"]},{"label":["avg_time"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Decastar","2":"11.17538"},{"1":"OlympicG","2":"10.91571"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>#highest points total across both competitions ####</p>
+<p>#highest points total across both competitionsc</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgXG4gIGdyb3VwX2J5KG5hbWUpICU+JSBcbiAgbXV0YXRlKHRvdGFsX3BvaW50cyA9IG1lYW4ocG9pbnRzKSoyKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyh0b3RhbF9wb2ludHMpKSAlPiUgXG4gIHNlbGVjdChuYW1lLCB0b3RhbF9wb2ludHMpICU+JVxuICBoZWFkKDEpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgXG4gIGdyb3VwX2J5KG5hbWUpICU+JSBcbiAgbXV0YXRlKHRvdGFsX3BvaW50cyA9IG1lYW4ocG9pbnRzKSoyKSAlPiUgI3dvcmsgYW9ydW5kIGFzIHN1bSBhZGRzIGFsbCBwb2ludHNcbiAgYXJyYW5nZShkZXNjKHRvdGFsX3BvaW50cykpICU+JSBcbiAgc2VsZWN0KG5hbWUsIHRvdGFsX3BvaW50cykgJT4lXG4gIGhlYWQoMSlcbmBgYCJ9 -->
 <pre class="r"><code>long_decathlon_data %&gt;% 
   group_by(name) %&gt;% 
-  mutate(total_points = mean(points)*2) %&gt;% 
+  mutate(total_points = mean(points)*2) %&gt;% #work aorund as sum adds all points
   arrange(desc(total_points)) %&gt;% 
   select(name, total_points) %&gt;%
   head(1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAyIl0sIkdyb3VwcyI6WyJuYW1lIFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMlFUVzdDTUJDRkp5RXVJaW9oRXVkSU50M1FYUmNWQjJpTGxGMWxndHRHR0R0eWpPaVNTM0dQbmdnNjQ4UlM4Q3lTNTI5K1BNOXZyOVZUV3FVQU1JRWt4aTlEQ1d6enNTNVc0QWhFa01DTS9yK1lYcUlnbUk4U0QrOWlhNlJBbFJGOStidWN3Y1ZkTzZzbDc3cWdOZDF4eThzdnd3OGlLSjhaZlNvVmNtcVowNjAwOUlZUnp2VkZ1VnV0aHduQlFUOWFiYm44YkhXakxOVmRnd0ZUM2RwR0swekY1STRGSzBZbUFJdWpvdW03b3Y0NXFuM3hURFpjdW8vNW9LT1JqdnNyazlzd2l2bVhFK3E3VVg1Ukp2bFd5T0dRb1gvbnJHd05MdTdmQzJsWE9rT2UxRnA2NHJ6QjlSOE5kYVN1MUFFQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMSDDlyAyIl0sIkdyb3VwcyI6WyJuYW1lIFsxXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMlFUVzdDTUJDRkp5RXVJaW9oRXVkSU5tWFJaUmNWQjJpTGxGMWxndHRHR0R0eWpPaVNTM0dQbmdnNjQ4UlM4Q3lTNTI5K1BNOXZyOVZUV3FVQU1JRWt4aTlEQ1d6enNTNmV3UkdJSUlFWi9YOHh2VVJCTUI4bEh0N0Yxa2lCS2lQNjhuYzVnNHU3ZGxaTDNuVkJhN3JqbHBkZmhoOUVVRDR6K2xRcTVOUXlwMXRwNkEwam5PdUxjcmRhRHhPQ2czNjAybkw1MmVwR1dhcTdCZ09tdXJXTlZwaUt5UjBMVm94TUFCWkhSZE4zUmYxelZQdGlSVFpjdW8vNW9LT1JqdnNyazlzd2l2bVhFK3E3VVg1Ukp2bFd5T0dRb1gvbnJHd05MdTdmQzJsWE9rT2UxRnA2NHJ6QjlSOTB4T0EzMUFFQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_points"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Sebrle","2":"17110"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -1875,10 +1861,10 @@ $ score       &lt;dbl&gt; 11.04, 7.58, 14.83, 2.07, 49.81, 14.69, 43.75, 5.02, 6
   arrange(desc(score)) %&gt;% 
   head(3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMyDDlyA1XSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0VlJ1MDdETUJTOVRacENnMXBWZ29VSlZvWkVJQllXcEE0VkRHdzhwQ0loSWRjeE5HcHFXN1lEcUJNekN4L1JoWW1QNENlWStRaldndTNFVmVXbGtaenJjMjVPemozMjVXQjRIQTlqQUFpaEdlaDNwTGNRM1Z5ZkpTZGdHV2hBRTlxbXZ1ajJ0dW5xMWFzVXR0RzZMY1dFUFRsMFJVYWlJQTVkSU1GMUQ2QmpGYkNYQWV6djZqcjMvckk1SUJoSmhjUmE3T25rbUtsN1hxcTFHS0JyZFAwVW5YL3V6SDc2eWNmdjEvdmRRVDk1TytYejc5aUxHMUUwSmJJMmkycXlhVWdYamJPY0tsbWpMY3ltbktoYzVZeldWSnpsRXVlOHlLbVRSQkl6UVR5anRtRFBxVE16cHhTOGduMUNmeUpjSU9rbWFpeE5rRUxwZ3pCekFTdzh5UWJqWmlBdENsWnZibm1sd2lONkpUV1RaQWtlbDNTU0hCMGFCOXV2VnFldTRjbytxanlEUCsrc1dvUStya1F2MElnVU5lanF5RFp4eW9VK1F4ZEZzekpWVENIM1hZeFo0UmdiRGhiL2Q1YUhUTEVDQUFBPSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Niwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMyDDlyA2XSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0VlN2VTdETUJDK3BFMmhRUlNrc2pEQnlwQXNDSWtGcVVNRkF4cy9VcEdRa09zYUdqVzFMZHNCMUltWmhZZm93c1JEOEJMTVBBUnJ3WFpzVkhscHBNUjMzK1c3dSsvT0YvM0JZVHBJQWFBQnpWaC9FMjFDY24xMW1oMkRSU0NDSnJUTithekRYVzIwOUx0ZE0yeWdkVk9KQ1h2MDNpVVppcEo0N3h3SnJtTUFtNWFoYzl1VXRlMnd2UkhBL3E0KzUwSG05VDdCU0Nva1Z2b0JUNDZadXVPVld1a0RkQXl2bDZPemo1M1pkeTk3Ly9sOHV6M29aYThuZlA2VkJpTklLSm9TNllxMUhOZzBvTGNGb2hNdm5iT0NLdW04RGN5bW5LaENGWXc2S0IwVkVoZThMS2luSnhJelFZS2liY0dlY2wvWVRDeCtBZnMwd3U1d2lhVHZMdm92Z2hUSzc0WHBFV0FSVU5ZWU53MXBVdHgxdTFrbVJ5SUF0aXBxT2hsbGVGelJTWFprQ3JoOVJxNjc1ZDFHOVcweEplTmZseXJ4NHlIMFlVbDVpWWFrZEU1SEs3YUNjeTcwQ0wwU2pjcGNNWVg4ZnlsbXBVZXNObGo4QVpBWVZVVFFBZ0FBIn0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["points"],"name":[2],"type":["int"],"align":["right"]},{"label":["competition"],"name":[3],"type":["chr"],"align":["left"]},{"label":["discipline"],"name":[4],"type":["chr"],"align":["left"]},{"label":["score"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Yurkov","2":"8036","3":"Decastar","4":"shot_put","5":"15.19","_rn_":"1"},{"1":"Sebrle","2":"8217","3":"Decastar","4":"shot_put","5":"14.83","_rn_":"2"},{"1":"Karpov","2":"8099","3":"Decastar","4":"shot_put","5":"14.77","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["rank"],"name":[2],"type":["int"],"align":["right"]},{"label":["points"],"name":[3],"type":["int"],"align":["right"]},{"label":["competition"],"name":[4],"type":["chr"],"align":["left"]},{"label":["discipline"],"name":[5],"type":["chr"],"align":["left"]},{"label":["score"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"Yurkov","2":"5","3":"8036","4":"Decastar","5":"shot_put","6":"15.19","_rn_":"1"},{"1":"Sebrle","2":"1","3":"8217","4":"Decastar","5":"shot_put","6":"14.83","_rn_":"2"},{"1":"Karpov","2":"3","3":"8099","4":"Decastar","5":"shot_put","6":"14.77","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1889,10 +1875,10 @@ long_decathlon_data %&gt;%
   arrange(desc(score)) %&gt;% 
   head(3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMyDDlyA1XSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0VlJ6VW9ETVJDZTdqYlZyclFVeEx0NDZxVnJ4WXZISGtRUElvSS8wRU5CMGpUYVlKcUUzYXphbTIvZ0UzbnhPY1MzMEdNMVNaTlNjdW5DWkdhK3liY3ozK1Q2ZEhpY0RUTUFTS0dlbUJPWkVORGQ3Vm52QkJ3Q05haEQwL3BYVTk2MVZXT2RKY01WR2pkMFhIQWFzZ3RjS1Buc00zU0pDWjJib09VSWNQQmhiQTlnL3p2NnlmWVZuODhVSStjYjg0aFhUcVcrVjVYZW1BTzBMVy9RSDNWL1B0OUhnOE12N3l0emRuOGp0VWpnR1MxOU0rVEJ1Z1dEVGlXWjBLWFBkb2ljS2FxWlpsSjRLSnV3a2pERm1RZ1VWQkpaMEtoUnM1QXZlV2htdDVTOGdmdlNlQ0xDY1JrbXFxMmFZSTN6aDhMT0JiQ0lLRnRTMllFTUtWbC91TldMRmhIUXFZU2RaTklqMDBvODlZNzZ0b09yTDYzbGZib1dvMlhQNUMvYVZZT0t4elhwSEk4cDkwbmJTSGFLYzFXWUhRWXBCaTF6TFRVTzl6SWllVUNjT0ZqOEF4STUzblN3QWdBQSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Niwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMyDDlyA2XSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0VlJ6VW9ETVJDZTNlNnVkc1VxaUhmeDFFdFhRUVNQUFlnZVJBUi9vSWVDcEdtMG9kc2tKRm0xTjkvQUovTGljNGh2b2NkcXNwdW81TktGWkdhKzdEZnp6Y3psOGVBZ0grUUEwSUlrTm5kcVhFaHZyazk2UjFBakVFRUNiV3VmelBPV2NUSnpOaHRHL1pCZGtaRXNpWS9Pa0JUOHdVWHBPY0prYnB6MW1tQ3pOVGI1dzNaZnpka0cyUGtJRXE5ZWxQT1pvUGgwYVJ6dzFJVHJXMUhwcFRGQXgvTDYrOFB1NTl2THNMLzM3bXhsN3U1WE1JR1VvUmxScmxqbXdNU0MzcGVJVGYwY0JLZE1LeGV0WVQ0VFJGTk5PWE5RUHFZS1UxRlM1dW1wd2x5U29HaGI4c2ZDRjdZVGk1K2gvbHFoT2x3aTVkVkZ2MFdRUnNXZHRCb0JGZ0ZsaFFzcnlKQml1OWcwSUVjeUFEWXFacFdNZTNoU3NXbnYwQlp3TzQyY09yOWY3MmROeWZqYnBVcjllQWk3LzlkNWlVYWtkRUhIZEZ3M1hBaHBSdWc3TWFncU5OZkkvNWRqWG5xazdnMFdQNENoWmtYUEFnQUEifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["points"],"name":[2],"type":["int"],"align":["right"]},{"label":["competition"],"name":[3],"type":["chr"],"align":["left"]},{"label":["discipline"],"name":[4],"type":["chr"],"align":["left"]},{"label":["score"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Sebrle","2":"8893","3":"OlympicG","4":"shot_put","5":"16.36","_rn_":"1"},{"1":"Karpov","2":"8725","3":"OlympicG","4":"shot_put","5":"15.93","_rn_":"2"},{"1":"Macey","2":"8414","3":"OlympicG","4":"shot_put","5":"15.73","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["rank"],"name":[2],"type":["int"],"align":["right"]},{"label":["points"],"name":[3],"type":["int"],"align":["right"]},{"label":["competition"],"name":[4],"type":["chr"],"align":["left"]},{"label":["discipline"],"name":[5],"type":["chr"],"align":["left"]},{"label":["score"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"Sebrle","2":"1","3":"8893","4":"OlympicG","5":"shot_put","6":"16.36","_rn_":"1"},{"1":"Karpov","2":"3","3":"8725","4":"OlympicG","5":"shot_put","6":"15.93","_rn_":"2"},{"1":"Macey","2":"4","3":"8414","4":"OlympicG","5":"shot_put","6":"15.73","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1906,10 +1892,10 @@ long_decathlon_data %&gt;%
   mutate (time_category = if_else(score &gt;= 50.00, &quot;slow&quot;, &quot;fast&quot;))%&gt;% group_by(time_category) %&gt;% 
   summarise(mean(points))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRc1U3RE1CQzlocGlxRWFrcUlTYlVnUTJHUktxNk1IWkFESXlvU04yUW03b2x3ckVqMjFXQmlUL3JCN0V3c3RCd2R1MEJlN2g3OTg3M3pzK1BkNHRwdHNnQTRBVFNCQ05CQ09ScGZsL2NnbU9nQnlrTWJIN0Q5amtDUzQ1Y1BqYlNOZFVtWU0zbER2UFE5bWY3aDZ2Znk0L3YyWDc2Y3pIdWYwV0NSTkNHNlVnc04zWERuaXRxMkVhcWQwK2VOWXlLNjFiV3d1aWJTR1dnNUs0TVNybFYrc1RRZGQwaFhsZHhxc082UUdZcmFtaTVWamlQVlR6U2w2MnBwY0NoeEJvbjBYQlBSY1JvSyt4TFZrWDFzaFd2eFdSaU43ais4ZVFlSi8reDNabDBYb3Q0clZNbU5yVmc0ZkdjTGhuM3hSQXRPOGRscS9CTGdoVmtkV21rb2VGZVZra2VHR2NPRG45cWxQbnk4QUVBQUE9PSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREbWl1QmlZR0JnWm1CaEFwS3NRQ1lEYTJpSW02NEZBMWlFZ1pHQmhZRVRSRmNBcFlXQkRKQ2dBSmlHU0xDa0pSYVh3TmpGT2ZubFFKb1BKTyt3Myt2Z2RhbS9QUTc3algrSXlySy9Sak9RTlM4eE43VVl6VERla3N6YzFQamt4SkxVOVB5aVNxZ2dUMjVxWXA1R1FYNW1Ya214SnBvcG5FWDU1WG93azNoQkpqVUFpZi8vLy85RHR5NDVKN0VZWmgxTWtDc2xzU1JSTDYwSXFCL0lROWZDbmw5UWtwbWZCOVRFQlBJNEs1cG14aUkwQWY3U1BKQkxVblNUTTByenNuWE5RQmFBcFNHQUY4cG1RbVdEckdUNkR6V0tGV29VVzJwZWVtWmVLc3p0T1lsSnFUbFFEaC9ReDJBUDZ4VVVBVU1FNWhPZ2FMRmVTWDVKSWt3ZFYzSitEa3dFN0RlR2Z3QnZGakFtN3dFQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["time_category"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean(points)"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"fast","2":"8010.133"},{"1":"slow","2":"7987.969"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+{"columns":[{"label":["time_category"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean(points)"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"fast","2":"8010.757"},{"1":"slow","2":"7987.969"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1917,7 +1903,7 @@ long_decathlon_data %&gt;%
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoaGVyZSkKbG9uZ19kZWNhdGhsb25fZGF0YSA8LSByZWFkLmNzdihoZXJlKCJjbGVhbl9kYXRhL2xvbmdfZGVjYXRobG9uX2RhdGEuY3N2IikpCmxvbmdfZGVjYXRobG9uX2RhdGEgPC0gc2VsZWN0KGxvbmdfZGVjYXRobG9uX2RhdGEsIC0xKQpnbGltcHNlKGxvbmdfZGVjYXRobG9uX2RhdGEpCmBgYAojbG9uZ2VzdCBsb25nIGp1bXAKYGBge3J9CmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIHNlbGVjdChuYW1lLCBkaXNjaXBsaW5lLCBzY29yZSkgJT4lIAogIGZpbHRlcihkaXNjaXBsaW5lID09ICJsb25nX2p1bXAiKSAlPiUgCiAgYXJyYW5nZShkZXNjKHNjb3JlKSkgJT4lIAogIGhlYWQoMSkKYGBgCiNhdmVyYWdlIDEwMG0gdGltZSBpbiBlYWNoIGNvbXBldGl0aW9uCmBgYHtyfQpsb25nX2RlY2F0aGxvbl9kYXRhICU+JSAKICBmaWx0ZXIoZGlzY2lwbGluZSA9PSAieDEwMG0iKSAlPiUgCiAgZ3JvdXBfYnkoY29tcGV0aXRpb24pICU+JSAKICBzdW1tYXJpc2UobWVhbihzY29yZSkpCmBgYAojaGlnaGVzdCBwb2ludHMgdG90YWwgYWNyb3NzIGJvdGggY29tcGV0aXRpb25zICMjIyMKYGBge3J9CmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIGdyb3VwX2J5KG5hbWUpICU+JSAKICBtdXRhdGUodG90YWxfcG9pbnRzID0gbWVhbihwb2ludHMpKjIpICU+JSAKICBhcnJhbmdlKGRlc2ModG90YWxfcG9pbnRzKSkgJT4lIAogIHNlbGVjdChuYW1lLCB0b3RhbF9wb2ludHMpICU+JQogIGhlYWQoMSkKYGBgCiN0b3AgMyBzaG90cHV0dGVycyBhbmQgc2NvcmVzIGluIGVhY2ggY29tcApgYGB7cn0KbG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgCiAgZmlsdGVyKGRpc2NpcGxpbmUgPT0gInNob3RfcHV0IiwgY29tcGV0aXRpb24gPT0gIkRlY2FzdGFyIikgJT4lIAogIGFycmFuZ2UoZGVzYyhzY29yZSkpICU+JSAKICBoZWFkKDMpCgpsb25nX2RlY2F0aGxvbl9kYXRhICU+JSAKICBmaWx0ZXIoZGlzY2lwbGluZSA9PSAic2hvdF9wdXQiLCBjb21wZXRpdGlvbiA9PSAiT2x5bXBpY0ciKSAlPiUgCiAgYXJyYW5nZShkZXNjKHNjb3JlKSkgJT4lIAogIGhlYWQoMykKYGBgCiNhdmcgcG9pbnRzIGZvciA0MDBtIHJ1bm5lcnMgYmFzZWQgb24gdGltZSAKYGBge3J9CmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIG11dGF0ZSAodGltZV9jYXRlZ29yeSA9IGlmX2Vsc2Uoc2NvcmUgPj0gNTAuMDAsICJzbG93IiwgImZhc3QiKSklPiUgZ3JvdXBfYnkodGltZV9jYXRlZ29yeSkgJT4lIAogIHN1bW1hcmlzZShtZWFuKHBvaW50cykpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoaGVyZSkKbG9uZ19kZWNhdGhsb25fZGF0YSA8LSByZWFkLmNzdihoZXJlKCJjbGVhbl9kYXRhL2xvbmdfZGVjYXRobG9uX2RhdGEuY3N2IikpCmxvbmdfZGVjYXRobG9uX2RhdGEgPC0gc2VsZWN0KGxvbmdfZGVjYXRobG9uX2RhdGEsIC0xKQpnbGltcHNlKGxvbmdfZGVjYXRobG9uX2RhdGEpCmBgYAojbG9uZ2VzdCBsb25nIGp1bXAKYGBge3J9CmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIHNlbGVjdChuYW1lLCBkaXNjaXBsaW5lLCBzY29yZSkgJT4lIAogIGZpbHRlcihkaXNjaXBsaW5lID09ICJsb25nX2p1bXAiKSAlPiUgCiAgYXJyYW5nZShkZXNjKHNjb3JlKSkgJT4lIAogIGhlYWQoMSkKYGBgCiNhdmVyYWdlIDEwMG0gdGltZSBpbiBlYWNoIGNvbXBldGl0aW9uCmBgYHtyfQpsb25nX2RlY2F0aGxvbl9kYXRhICU+JSAKICBmaWx0ZXIoZGlzY2lwbGluZSA9PSAieDEwMG0iKSAlPiUgCiAgZ3JvdXBfYnkoY29tcGV0aXRpb24pICU+JSAKICBzdW1tYXJpc2UoYXZnX3RpbWUgPSBtZWFuKHNjb3JlKSkgJT4lIAogIG11dGF0ZShhdmdfdGltZSA9IGFzLm51bWVyaWMoYXZnX3RpbWUpKQpgYGAKI2hpZ2hlc3QgcG9pbnRzIHRvdGFsIGFjcm9zcyBib3RoIGNvbXBldGl0aW9uc2MKYGBge3J9CmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIGdyb3VwX2J5KG5hbWUpICU+JSAKICBtdXRhdGUodG90YWxfcG9pbnRzID0gbWVhbihwb2ludHMpKjIpICU+JSAjd29yayBhb3J1bmQgYXMgc3VtIGFkZHMgYWxsIHBvaW50cwogIGFycmFuZ2UoZGVzYyh0b3RhbF9wb2ludHMpKSAlPiUgCiAgc2VsZWN0KG5hbWUsIHRvdGFsX3BvaW50cykgJT4lCiAgaGVhZCgxKQpgYGAKI3RvcCAzIHNob3RwdXR0ZXJzIGFuZCBzY29yZXMgaW4gZWFjaCBjb21wCmBgYHtyfQpsb25nX2RlY2F0aGxvbl9kYXRhICU+JSAKICBmaWx0ZXIoZGlzY2lwbGluZSA9PSAic2hvdF9wdXQiLCBjb21wZXRpdGlvbiA9PSAiRGVjYXN0YXIiKSAlPiUgCiAgYXJyYW5nZShkZXNjKHNjb3JlKSkgJT4lIAogIGhlYWQoMykKCmxvbmdfZGVjYXRobG9uX2RhdGEgJT4lIAogIGZpbHRlcihkaXNjaXBsaW5lID09ICJzaG90X3B1dCIsIGNvbXBldGl0aW9uID09ICJPbHltcGljRyIpICU+JSAKICBhcnJhbmdlKGRlc2Moc2NvcmUpKSAlPiUgCiAgaGVhZCgzKQpgYGAKI2F2ZyBwb2ludHMgZm9yIDQwMG0gcnVubmVycyBiYXNlZCBvbiB0aW1lIApgYGB7cn0KbG9uZ19kZWNhdGhsb25fZGF0YSAlPiUgCiAgbXV0YXRlICh0aW1lX2NhdGVnb3J5ID0gaWZfZWxzZShzY29yZSA+PSA1MC4wMCwgInNsb3ciLCAiZmFzdCIpKSU+JSBncm91cF9ieSh0aW1lX2NhdGVnb3J5KSAlPiUgCiAgc3VtbWFyaXNlKG1lYW4ocG9pbnRzKSkKYGBgCgo=</div>
 
 
 

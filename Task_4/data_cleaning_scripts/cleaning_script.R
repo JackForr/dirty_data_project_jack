@@ -118,5 +118,3 @@ full_data <- full_data %>%
 
 ### writing clean data 
 write.csv(full_data, file = "full_data.csv")
-
-

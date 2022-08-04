@@ -1,0 +1,8 @@
+---
+title: "documentation_report"
+output: html_document
+date: '2022-08-04'
+---
+This dataset came ina single .csv file which contained athlete's scores across events in the heptathlon as well as which competition this was in, their points total and their rank. The data came without units, so I worked under the presumption that track events were measured in seconds and field events in metres.
+  The first step to cleaning the data was to remove the row names and have these in a column by themselves, I also made sure this column was in title format as the column contained names. After this I pivotted all columns relating to events and scores into long format.
+    The longest long jump in the dataset is held by Clay at 7.96(m). The average 100m time in the Decastar was 11.18(s), compared to 10.92(s) in the olynmpics. The highest total points across both competitions is held by Serble with 17110. The top 3 shotput scores in the decastar were: 15.19(m), 14.83(m), 14.77(m), compared to: 16.36(m), 15.93(m), 15.73(m) in the olympics. The average points for "slow" runners (400m > 50s) was 7988 and 8010 for "fast" runners (400m < 50s). 
