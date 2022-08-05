@@ -85,7 +85,7 @@ full_data <- full_data %>%
          reaction = na_if(reaction, "2.0"),
          reaction = na_if(reaction, "Friday"),
          reaction = na_if(reaction, "Sunday")) %>% 
-  drop_na(reaction)
+  drop_na(reaction) #dropping as other info seems pointless with no reaction to candy
 
 ### cleaning observations
 usa_outliers = c("Alaska", "California", "EUA", "Merica", "Murica", "murrika",
